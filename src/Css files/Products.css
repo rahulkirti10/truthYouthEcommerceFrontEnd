@@ -1,0 +1,114 @@
+.ProductMenu
+{
+    width: 100vw;  
+    display: flex;
+   justify-content: center;
+   align-items: center;
+    flex-direction: column;
+}
+.ProductTitle
+{
+    height: 17vh;
+    width: 97%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.ProductTitle .One
+{
+    font-size: 35px;
+    font-weight: 600; 
+    color: #1b4b66;
+}
+.ProductSection
+{
+    width: 97vw;  
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.ProductFilter
+{
+    height: 100%;
+    width: 23%;  
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.ProductList
+{
+    height: 100%;
+    width: 75%;  
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.ProductListPage
+{
+    height: 13vh;
+    width: 100%;  
+    display: flex;
+    align-items: center;
+    border:  1px solid black;
+}
+.ProductListCard
+{
+    width: 100%;  
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+.ProductCard
+{
+    height: 410px;
+    width: 280px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin: 15px;
+}
+.ProductCard .Image
+{
+    height: 68.5%;
+    width: 100%;
+    background-color: #F1F1F1;
+    border-radius: 10px;
+    display: flex;
+    justify-content:center;
+}
+.ProductCard .Data
+{
+    height: 31.5%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+.ProductCard .Title
+{
+font-size: 17px;
+font-weight: 600;
+width: 100%;
+display: flex;
+justify-content: space-between;
+align-items: flex-start;
+color : #171520;
+}
+.ProductCard .Subtitle
+{
+font-size: 15px;
+color : #626262;
+}
+.ProductCard .Rating
+{
+font-size: 14px;
+font-weight: 500;
+color : #1b4b66;
+}
+.ProductCard .Price
+{
+font-size: 16.5px;
+font-weight: 600;
+color : #171520;
+}

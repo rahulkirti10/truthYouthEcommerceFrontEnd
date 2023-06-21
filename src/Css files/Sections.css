@@ -1,0 +1,288 @@
+.Announce
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15.5px;
+    height: 50px;
+    width: 100%;
+    background-color: #F0f0f0;
+}
+
+/* /---------------------------------------------------------------------------------------------\ */
+
+
+.SeeMore
+{   height: 73vh;
+    width: 100vw;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.SeeMoreImage
+{
+    height: 90%;
+    width: 97%;
+    border-radius: 25px;
+    background-image : url('../../public/Images/template1.jpg');
+    background-size : cover;
+    background-repeat : no-repeat;
+    background-position : center;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.SeeMoreBtn
+{
+    height: 28%;
+    width: 61%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+/* /---------------------------------------------------------------------------------------------\ */
+
+.Arrivals
+{
+    height: 85vh;
+    width: 100vw;  
+    display: flex;
+   justify-content: flex-start;
+   align-items: center;
+    flex-direction: column;
+}
+.ArrivalTitle
+{
+    height: 20%;
+    width: 97%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.ArrivalTitle .One
+{
+    font-size: 35px;
+    font-weight: 600; 
+}
+.ArrivalTitle .Two
+{
+    font-size: 15px;
+    font-weight: 600; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ArrowIcon
+{
+    height: 20px;
+    width:20px;
+    margin: 10px;
+}
+
+.ArrivalList
+{
+    height: 77%;
+    width: 97%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.ArrivalCard
+{
+    height: 97%;
+    width: 23%;
+}
+.ArrivalCardImg
+{
+    height: 72%;
+    width: 100%;
+    background-color: black;
+    border-radius: 10px;
+    display: flex;
+    justify-content:center;
+}
+.ArrivalCardDet
+{
+    height: 25%;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+.ArrivalCardDet .Title
+{
+font-weight: 600;
+margin-bottom:6px ;
+color : #171520;
+}
+.ArrivalCardDet .SubTitle
+{
+font-size: 15px;
+margin-bottom:6px ;
+color : #626262;
+}
+.ArrivalCardDet .Price
+{
+font-weight: 600;
+margin-bottom:10px ;
+color : #171520;
+}
+
+/* /---------------------------------------------------------------------------------------------\ */
+
+.Collections
+{
+    height: 70vh;
+    width: 100vw;  
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #1b4b66;
+}
+.CollectionTitle
+{
+    height: 23%;
+    width: 97%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.CollectionTitle .One
+{
+    font-size: 35px;
+    font-weight: 600; 
+    color: white;
+}
+.CollectionList
+{
+    height: 77%;
+    width: 97%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.CollectionListCard
+{
+    height: 85%;
+    width: 22.5%;
+    background-color: #171520;
+    border-radius: 10px;
+}
+
+
+/* /---------------------------------------------------------------------------------------------\ */
+
+.Brands
+{
+    height: 60vh;
+    width: 100vw;  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+}
+.BrandTitle
+{
+    height: 30%;
+    width: 97%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.BrandTitle .One
+{
+    font-size: 35px;
+    font-weight: 600; 
+}
+.BrandList
+{
+    height: 62%;
+    width: 97%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.BrandListCard
+{
+    height: 70%;
+    width: 13%;
+    background-color: #F4F4F4;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* /---------------------------------------------------------------------------------------------\ */
+
+.Ex
+{
+    height: 120vh;
+    width: 100vw;  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.ExOne
+{
+    height: 55%;
+    width: 97%;
+    border-radius: 25px;
+    background-image : url('../../public/Images/Couple.jpg');
+    background-size : cover;
+    background-repeat : no-repeat;
+    background-position : center;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.ExTwo
+{
+    height: 45%;
+    width: 97%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.ExRight
+{
+    height: 70%;
+    width: 49%;
+    border-radius: 25px;
+    background-image : url('../../public/Images/Girl.jpg');
+    background-size : cover;
+    background-repeat : no-repeat;
+    background-position : center;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.ExLeft
+{
+    height: 70%;
+    width: 49%;
+    border-radius: 25px;
+    background-image : url('../../public/Images/Boy.jpg');
+    background-size : cover;
+    background-repeat : no-repeat;
+    background-position : center;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}

@@ -1,0 +1,98 @@
+.Foot
+{
+    width: 100vw;
+    height: 60vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    background-color: #1b4b66;
+}
+.Footer
+{
+    width: 93%;
+    height: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.FooterRight
+{
+    width: 45%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.FooterRightUp
+{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.FooterRightUp .link
+{
+    margin-right: 10px;
+    color: #639599;
+}
+.FooterRightDown
+{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+.FooterRightDown .Location
+{
+    color: white;
+    font-size: 13px;
+    margin-right: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.FooterRightDown .Rights
+{
+    color: #8f9ba2;
+    font-size: 13px;
+    margin-right: 10px;
+}
+.FooterLeft
+{
+    width: 55%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+.FooterLeftOne
+{
+    width: 30%;
+    height: 90%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.FooterLeftOne .Heading
+{
+    color: white;
+    font-size: 17px;
+}
+.FooterLeftOne .list
+{
+    color: #8f9ba2;
+    font-size: 14px;
+    text-decoration: none;
+    margin-top: 10px;
+    transition: 0.5s;
+}
+.FooterLeftOne .list:hover
+{
+    color: white;
+}
