@@ -30,7 +30,7 @@ function App() {
           }
         />
       <Route
-          path="/Products/*"
+          path="/products/*"
           element={
             <>
             <AppHeader />
@@ -40,7 +40,7 @@ function App() {
           }
         />
       <Route
-          path="/Registeration"
+          path="/registeration"
           element={
             <>
               <SignLogPage />

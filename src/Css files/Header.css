@@ -83,6 +83,7 @@ text-decoration: underline;
 .Search
 {
     border : 0;
+    outline: none;
     height: 45px;
     width: 320px;
     background: transparent;
