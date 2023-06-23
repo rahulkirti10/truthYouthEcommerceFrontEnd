@@ -1,0 +1,159 @@
+.SLPage
+{
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.SLBox
+{
+    height: 95%;
+    width: 60%;
+    background-image : url('../../public/Images/Backg.png');
+    background-size : cover;
+    background-repeat : no-repeat;
+    background-position : center;
+    display: flex;
+}
+
+
+.SLBoxLeft
+{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.SLForm
+{
+    height: 85%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+}
+.SLForm .One
+{
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.SLForm .Two
+{
+    height: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.SLForm .Two label
+{
+    font-weight:600;
+    font-size: 20px;
+}
+
+.SLForm .Two .Text
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.Text .Input
+{
+    border : 0;
+    border-radius: 5px;  
+    height: 45px;
+    width: 280px;
+    margin-left: 10px;
+    background-color: #F1F1F1;
+}
+.Text .Input::placeholder
+{
+    color: #626262;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.Text .Code
+{
+    border : 0;
+    border-radius: 5px;
+    height: 45px;
+    width: 60px;
+    background-color: #F1F1F1;
+    color: #626262;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.SLForm .Three
+{
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.Three .TC
+{
+    width: 100%;
+    font-size: 13px;
+
+    margin-top: 30px;
+}
+
+.TC .New2
+{
+    font-size: 13px;
+    font-weight: 600;
+    color: #1b4b66;
+}
+
+.Three .Btn
+{
+    height: 20%;
+    width: 100%;
+    margin-top: 20px;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #1b4b66;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+}
+
+.Three .Btn:hover
+{
+    background-color: #639599;
+}
+
+.Three .New
+{
+    width: 100%;
+    font-size: 13px;
+    margin-top: 20px;
+    font-weight: 600;
+    color: #1b4b66;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.SLBoxRight
+{
+    width: 50%;
+    height: 100%;   
+}

@@ -80,7 +80,7 @@ function AppHeader() {
       </div>
     <div className='HeadIcons'>
       <Link className='link'><FavoriteBorderOutlinedIcon /></Link>
-      <Link className='link'><PersonOutlinedIcon /></Link>
+      <Link className='link' to="/Registeration"><PersonOutlinedIcon /></Link>
       <Link className='link2'>
       <StyledBadge variant='dot' color="primary">
         <ShoppingBagOutlinedIcon />

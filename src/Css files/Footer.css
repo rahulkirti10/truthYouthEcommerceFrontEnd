@@ -36,6 +36,11 @@
 {
     margin-right: 10px;
     color: #639599;
+    transition: 0.5s;
+}
+.FooterRightUp .link:hover
+{
+    color: white;
 }
 .FooterRightDown
 {
