@@ -18,13 +18,36 @@ function App() {
   return (
     <>
     <Router>
-    {showHeaderFooter(window.location.pathname) && <AppHeader />}
     <Routes>
-      <Route path='/' exec element={<HomePage />}></Route>
-      <Route path='/Products' exec element={<ProductPage />}></Route>
-      <Route path='/Registeration' exec element={<SignLogPage />}></Route>
+    <Route
+          path="/"
+          element={
+            <>
+              <AppHeader />
+              <HomePage />
+              <AppFooter />
+            </>
+          }
+        />
+      <Route
+          path="/Products/*"
+          element={
+            <>
+            <AppHeader />
+              <ProductPage />
+              <AppFooter />
+            </>
+          }
+        />
+      <Route
+          path="/Registeration"
+          element={
+            <>
+              <SignLogPage />
+            </>
+          }
+        />
     </Routes>
-    {showHeaderFooter(window.location.pathname) && <AppFooter />}
     </Router>
     </>
   );

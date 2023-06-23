@@ -62,7 +62,7 @@ function AppHeader() {
 
       <div className='BigHead1'>
         <div className='HeadLogo'>
-      <img src='../Images/logo.svg' alt='logo' />
+      <img src='../Images/coral.png' alt='logo' height="100%" width="100%" />
       </div>
       <div className='HeadNav'>
       <label className='link' onClick={() => handleClick("Handbags")} >Handbags</label>
