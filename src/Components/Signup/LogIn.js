@@ -6,13 +6,13 @@ function LogIn() {
     <div className='SLForm'>
           
           <div className='One'>
-            <img src='../Images/logo.svg' height="50%" width="90%" />
+            <img src='../Images/coral.png' height="80%" width="90%" />
           </div>
 
           <div className='Two'>
             <label>Login to your account</label>
             <div className='Text'>
-            <input className='Code' type="text" value="+91" readOnly/>
+            <input className='Code' type="text" placeholder="+91" readOnly/>
             <input className='Input' type="text" placeholder='Enter Mobile Number'/>        
             </div>    
           </div>
