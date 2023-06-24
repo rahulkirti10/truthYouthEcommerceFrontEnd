@@ -110,18 +110,37 @@ transform: rotate(180deg);
     outline: none;
     border-radius: 5px;  
     height: 45px;
-    width: 290px;
+    width: 292px;
     margin-left: 10px;
     font-size: 20px;
     background-color: #F1F1F1;
     padding-left: 10px;
+    padding-bottom: 5px;
 }
 .Text .Input::placeholder
 {
     color: #626262;
     font-weight: 600;
     font-size: 15px;
+}
+
+.Text .Input2
+{
+    border : 0;
+    outline: none;
+    border-radius: 5px;  
+    height: 45px;
+    width: 100%;
+    font-size: 20px;
+    background-color: #F1F1F1;
     padding-left: 10px;
+    padding-bottom: 5px;
+}
+.Text .Input2::placeholder
+{
+    color: #626262;
+    font-weight: 600;
+    font-size: 15px;
 }
 
 .Text .Code
@@ -132,14 +151,14 @@ transform: rotate(180deg);
     height: 45px;
     width: 61px;
     background-color: #F1F1F1;
-    cursor:context-menu;
+    cursor:default;
+    padding-left: 10px;
 }
 .Text .Code::placeholder
 {
     color: #626262;
     font-weight: 600;
     font-size: 15px;
-    padding-left: 10px;
 }
 
 
@@ -221,7 +240,7 @@ transform: rotate(180deg);
 }
 .SForm .Two
 {
-    height: 35%;
+    height: 40%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -231,7 +250,7 @@ transform: rotate(180deg);
 .SForm .Two label
 {
     font-weight:600;
-    font-size: 25px;
+    font-size: 23px;
 }
 
 .SForm .Two .Text
@@ -239,12 +258,12 @@ transform: rotate(180deg);
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: flex-start;
 }
 
 .SForm .Three
 {
-    height: 50%;
+    height: 40%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

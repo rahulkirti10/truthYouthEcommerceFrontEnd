@@ -1,10 +1,12 @@
 import React from 'react';
+import "../../Css files/SLForm.css"
 import { Link } from 'react-router-dom';
 
 const inputRefs = Array.from({ length: 6 }, () => React.createRef());
 let isFirstBackspaceClick = true;
 
 function Otp() {
+
   const handleInputChange = (index, e) => {
     if (e.target.value.length === 0 && index > 0) {
       inputRefs[index - 1].current.focus();
@@ -37,6 +39,15 @@ function Otp() {
   };
 
   return (
+<div className='SLPage'>
+
+<div className='SLBox'>
+
+  <div className='SLBoxLeft'>
+  <div className='LeftTop'>
+  <img src='../Images/cloud-image.png' height="100%" width="50%"  alt='logo'/>
+  </div>
+
     <div className='OForm'>
       <div className='One'>
         <img src='../Images/coral.png' height='80%' width='90%' alt='Logo' />
@@ -68,9 +79,25 @@ function Otp() {
           <Link className='New2'>Privacy Policy</Link>
         </label>
         <Link className='Btn'>Continue</Link>
-        <Link className='New'>New to here? Create an account</Link>
       </div>
     </div>
+    </div>
+
+    <div className='SLBoxRight'>  
+
+<div className='RightTop'>
+<img src='../Images/24493638_6941053.svg' height="100%" width="80%"  alt='logo'/>
+</div>
+
+<div className='RightDown'>
+<img src='../Images/cloud-image.png' height="100%" width="100%"  alt='logo'/>
+</div>  
+
+</div>
+
+</div>
+
+</div>
   );
 }
 

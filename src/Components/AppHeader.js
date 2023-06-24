@@ -35,7 +35,10 @@ function AppHeader() {
       setAnchorEl(event.currentTarget);
     };
     const clickLink = (option) => {
-      navigate(`/registeration?option=${option}`)
+      if(option === "SignUp")
+      {navigate(`/signup`)}
+      else
+      {navigate(`/login`)}
     };
     const handleClose = () => {
       setAnchorEl(null);
@@ -105,7 +108,7 @@ function AppHeader() {
             'aria-labelledby': 'basic-button',
           }}
         >
-          <MenuItem onClick={() => clickLink("SignIn")}>SignIn</MenuItem>
+          <MenuItem onClick={() => clickLink("SignUp")}>SignUp</MenuItem>
           <MenuItem onClick={() => clickLink("LogIn")}>LogIn</MenuItem>
         </Menu>
       

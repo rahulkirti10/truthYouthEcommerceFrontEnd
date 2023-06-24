@@ -1,8 +1,28 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import "../../Css files/SLForm.css"
 
 function SignUp() {
+
+  const navigate = useNavigate();
+  const clickLink = () => {
+    navigate(`/signup`);
+  };
+
+
   return (
+
+    <div className='SLPage'>
+
+    <div className='SLBox'>
+
+      <div className='SLBoxLeft'>
+      <div className='LeftTop'>
+      <img src='../Images/cloud-image.png' height="100%" width="50%"  alt='logo'/>
+      </div>
+
+
     <div className='SForm'>
           
           <div className='One'>
@@ -10,13 +30,13 @@ function SignUp() {
           </div>
 
     <div className='Two'>
-      <label>SignIn to your account</label>
-      <div className='Text'>
-      <input className='Input' type="text" placeholder='Enter Name'/>
-      </div>
+      <label>Signup with your mobile number to get started</label>
       <div className='Text'>
       <input className='Code' type="text" placeholder="+91" readOnly/>
-      <input className='Input' type="text" placeholder='Enter Mobile Number'/>        
+      <input className='Input' type="text" placeholder='Enter Mobile Number'/> 
+      </div>
+      <div className='Text'>  
+      <input className='Input2' type="text" placeholder='Enter Name'/>     
       </div>    
     </div>
     
@@ -24,8 +44,25 @@ function SignUp() {
 
     <label className='TC'>By continuing, you agree to our <Link className='New2'>Terms of use</Link> and <Link className='New2'>Privacy Policy</Link></label>
     <Link className='Btn' to="/verify">Request OTP</Link>
-      
+    <label className='New'  onClick={() => clickLink()}>Already an user? Click here to LogIn</label>
     </div>
+</div>
+
+</div>
+
+<div className='SLBoxRight'>  
+
+<div className='RightTop'>
+<img src='../Images/24493638_6941053.svg' height="100%" width="80%"  alt='logo'/>
+</div>
+
+<div className='RightDown'>
+<img src='../Images/cloud-image.png' height="100%" width="100%"  alt='logo'/>
+</div>  
+
+</div>
+
+</div>
 
 </div>
   )
