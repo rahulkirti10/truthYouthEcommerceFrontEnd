@@ -9,6 +9,8 @@ import ClearSharpIcon from '@mui/icons-material/ClearSharp';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 // import MenuSharpIcon from '@mui/icons-material/MenuSharp';
 // import Drawer from '@mui/material/Drawer';
 
@@ -17,7 +19,7 @@ function AppHeader() {
   const navigate = useNavigate();
 
   const handleClick = (category) => {
-    navigate(`/Products?category=${category}`);
+    navigate(`/products?category=${category}`);
   }
 
   const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -27,32 +29,44 @@ function AppHeader() {
     },
   }));
 
+  const [anchorEl, setAnchorEl] = React.useState(null);
+    const open = Boolean(anchorEl);
+    const clickMenu = (event) => {
+      setAnchorEl(event.currentTarget);
+    };
+    const clickLink = (option) => {
+      navigate(`/registeration?option=${option}`)
+    };
+    const handleClose = () => {
+      setAnchorEl(null);
+    };
 
 
-  const [state, setState] = useState({
-    right: false,
-  });
 
-  const toggleDrawer = (anchor, open) => (event) => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-      return;
-    }
-    setState({ ...state, [anchor]: open });
-  };
+  // const [state, setState] = useState({
+  //   right: false,
+  // });
 
-  const list= (anchor) => ( 
-    <div className='BurgerMenuA' >
-    <div className='Cross'>
-    <ClearSharpIcon sx={{cursor:'pointer'}} onClick={toggleDrawer(anchor, false)}/>
-    </div>
-    <div className='SideNav'>
-          <label className='link' onClick={() => handleClick("Handbags")} >Handbags</label>
-          <label className='link'>Watches</label>
-          <label className='link'>Skincare</label>
-          <label className='link'>Jewellery</label>
-          <label className='link'>Apparels</label>
-    </div>
-    </div>);
+  // const toggleDrawer = (anchor, open) => (event) => {
+  //   if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+  //     return;
+  //   }
+  //   setState({ ...state, [anchor]: open });
+  // };
+
+  // const list= (anchor) => ( 
+  //   <div className='BurgerMenuA' >
+  //   <div className='Cross'>
+  //   <ClearSharpIcon sx={{cursor:'pointer'}} onClick={toggleDrawer(anchor, false)}/>
+  //   </div>
+  //   <div className='SideNav'>
+  //         <label className='link' onClick={() => handleClick("Handbags")} >Handbags</label>
+  //         <label className='link'>Watches</label>
+  //         <label className='link'>Skincare</label>
+  //         <label className='link'>Jewellery</label>
+  //         <label className='link'>Apparels</label>
+  //   </div>
+  //   </div>);
 
 
 
@@ -80,7 +94,22 @@ function AppHeader() {
       </div>
     <div className='HeadIcons'>
       <Link className='link'><FavoriteBorderOutlinedIcon /></Link>
-      <Link className='link' to="/Registeration"><PersonOutlinedIcon /></Link>
+
+      <Link className='link'onClick={clickMenu}><PersonOutlinedIcon /></Link>
+      <Menu
+          id="basic-menu"
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+          MenuListProps={{
+            'aria-labelledby': 'basic-button',
+          }}
+        >
+          <MenuItem onClick={() => clickLink("SignIn")}>SignIn</MenuItem>
+          <MenuItem onClick={() => clickLink("LogIn")}>LogIn</MenuItem>
+        </Menu>
+      
+      
       <Link className='link2'>
       <StyledBadge variant='dot' color="primary">
         <ShoppingBagOutlinedIcon />

@@ -23,7 +23,7 @@ function SignUp() {
     <div className='Three'>
 
     <label className='TC'>By continuing, you agree to our <Link className='New2'>Terms of use</Link> and <Link className='New2'>Privacy Policy</Link></label>
-    <Link className='Btn'>Request OTP</Link>
+    <Link className='Btn' to="/verify">Request OTP</Link>
       
     </div>
 

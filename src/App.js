@@ -5,6 +5,7 @@ import AppHeader from './Components/AppHeader';
 import HomePage from './Components/Home/HomePage';
 import AppFooter from './Components/AppFooter';
 import ProductPage from './Components/Products/ProductPage';
+import Otp from './Components/Signup/Otp';
 
 function App() {
 
@@ -19,34 +20,30 @@ function App() {
     <>
     <Router>
     <Routes>
-    <Route
-          path="/"
-          element={
+    <Route path="/" element={
             <>
               <AppHeader />
               <HomePage />
               <AppFooter />
             </>
-          }
-        />
-      <Route
-          path="/products/*"
-          element={
+          }/>
+      <Route path="/products" element={
             <>
             <AppHeader />
               <ProductPage />
               <AppFooter />
             </>
-          }
-        />
-      <Route
-          path="/registeration"
-          element={
+          }/>
+      <Route path="/registeration" element={
             <>
               <SignLogPage />
             </>
-          }
-        />
+          }/>
+      <Route path="/verify" element={
+            <>
+              <Otp />
+            </>
+          }/>
     </Routes>
     </Router>
     </>
