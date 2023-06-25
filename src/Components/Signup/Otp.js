@@ -22,8 +22,7 @@ function Otp(props) {
   const handleClick = (e) => {
     e.preventDefault();
 
-    const otp =
-      values[0] + values[1] + values[2] + values[3] + values[4] + values[5];
+    const otp = values[0] + values[1] + values[2] + values[3] + values[4] + values[5];
     console.log(otp);
 
     let user = {
