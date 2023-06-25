@@ -1,19 +1,28 @@
-import React from 'react';
+import React, {useState} from 'react';
 import "../../Css files/SLForm.css"
 import { Link } from 'react-router-dom';
 
 const inputRefs = Array.from({ length: 6 }, () => React.createRef());
-let isFirstBackspaceClick = true;
+let isFirstBackspaceClick = true
 
 function Otp() {
+  const [values, setValues] = useState(["", "", "", "", "", ""]);
 
   const handleInputChange = (index, e) => {
-    if (e.target.value.length === 0 && index > 0) {
-      inputRefs[index - 1].current.focus();
-    } else if (e.target.value.length === 1 && index < inputRefs.length - 1) {
-      inputRefs[index + 1].current.focus();
+  const numericValue = e.target.value.replace(/[^0-9]/g, "");
+  const newValues = [...values];
+  newValues[index] = numericValue;
+  setValues(newValues);
+  if(numericValue === '0' || numericValue === '1' || numericValue === '2' || numericValue === '3' || numericValue === '4' || numericValue === '5'
+    || numericValue === '6' || numericValue === '7' || numericValue === '8' || numericValue === '9'){
+      if (e.target.value.length === 0 && index > 0) {
+        inputRefs[index - 1].current.focus();
+      } else if (e.target.value.length === 1 && index < inputRefs.length - 1) {
+          inputRefs[index + 1].current.focus();
+      }
     }
-  };
+    };
+  
 
   const handleKeyDown = (index, e) => {
     if (e.key === 'Backspace') {
@@ -54,17 +63,20 @@ function Otp() {
       </div>
 
       <div className='Two'>
-        <label className='Heading'>Recieve a Verification Code?</label>
-        <label className='Subheading'>We've sent an OTP on your registered Mobile No. 8010xxxxxx. Enter the 6 digit code</label>
+        <label className='Heading'>Recieved a Verification Code?</label>
+        <label className='Subheading'>We've sent an OTP on your registered mobile number 8010xxxxxx. Enter the 6-digit code.</label>
         <div className='Text'>
-          {inputRefs.map((ref, index) => (
+          { inputRefs.map((ref, index) => (
             <input
              className='Code'
-              key={index}
+             key={index}
               ref={ref}
+              value={values[index]}
               type='text'
               maxLength='1'
-              placeholder='_'
+              placeholder='0'
+              min={0}
+              max={9}
               onChange={(e) => handleInputChange(index, e)}
               onKeyDown={(e) => handleKeyDown(index, e)}
             />

@@ -1,9 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import "../../Css files/SLForm.css"
 
 function SignUp() {
+  const [val, setVal] = useState("");
 
   const navigate = useNavigate();
   const clickLink = () => {
@@ -33,7 +34,8 @@ function SignUp() {
       <label>Signup with your mobile number to get started</label>
       <div className='Text'>
       <input className='Code' type="text" placeholder="+91" readOnly/>
-      <input className='Input' type="text" placeholder='Enter Mobile Number'/> 
+      <input className='Input' type="text" placeholder='Enter Mobile Number' value={val}
+        onChange={e => setVal(e.target.value.replace(/[^0-9]/g, ""))}/> 
       </div>
       <div className='Text'>  
       <input className='Input2' type="text" placeholder='Enter Name'/>     
