@@ -19,6 +19,7 @@ function Otp() {
     const numericValue = e.target.value.replace(/[^0-9]/g, "");
     const newValues = [...values];
     newValues[index] = numericValue;
+    console.log(numericValue)
     setValues(newValues);
     if (
       numericValue === "0" ||
@@ -99,6 +100,7 @@ function Otp() {
                     key={index}
                     ref={ref}
                     type="text"
+                    value={values[index]}
                     maxLength="1"
                     placeholder="0"
                     onChange={(e) => handleInputChange(index, e)}
@@ -117,7 +119,7 @@ function Otp() {
               <input
                 type="submit"
                 className="Btn"
-                value="Request OTP"
+                value="Verify Otp"
                 onClick={() => handleClick()}
               />
             </div>
