@@ -1,11 +1,9 @@
 import React from "react";
 import "../Css files/Header.css";
-import { useState } from "react";
 import { styled } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Badge from "@mui/material/Badge";
-import ClearSharpIcon from "@mui/icons-material/ClearSharp";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";

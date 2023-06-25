@@ -1,16 +1,42 @@
 import React from "react";
 import "../../Css files/SLForm.css";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const inputRefs = Array.from({ length: 6 }, () => React.createRef());
 let isFirstBackspaceClick = true;
 
 function Otp() {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(`/verify`);
+  };
+
+  const [values, setValues] = useState(["", "", "", "", "", ""]);
+
   const handleInputChange = (index, e) => {
-    if (e.target.value.length === 0 && index > 0) {
-      inputRefs[index - 1].current.focus();
-    } else if (e.target.value.length === 1 && index < inputRefs.length - 1) {
-      inputRefs[index + 1].current.focus();
+    const numericValue = e.target.value.replace(/[^0-9]/g, "");
+    const newValues = [...values];
+    newValues[index] = numericValue;
+    setValues(newValues);
+    if (
+      numericValue === "0" ||
+      numericValue === "1" ||
+      numericValue === "2" ||
+      numericValue === "3" ||
+      numericValue === "4" ||
+      numericValue === "5" ||
+      numericValue === "6" ||
+      numericValue === "7" ||
+      numericValue === "8" ||
+      numericValue === "9"
+    ) {
+      if (e.target.value.length === 0 && index > 0) {
+        inputRefs[index - 1].current.focus();
+      } else if (e.target.value.length === 1 && index < inputRefs.length - 1) {
+        inputRefs[index + 1].current.focus();
+      }
     }
   };
 
@@ -88,7 +114,12 @@ function Otp() {
                 <Link className="New2">Terms of use</Link> and{" "}
                 <Link className="New2">Privacy Policy</Link>
               </label>
-              <Link className="Btn">Verify</Link>
+              <input
+                type="submit"
+                className="Btn"
+                value="Request OTP"
+                onClick={() => handleClick()}
+              />
             </div>
           </div>
         </div>
