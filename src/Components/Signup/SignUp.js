@@ -1,16 +1,49 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import "../../Css files/SLForm.css";
+import axios from "axios";
 
 function SignUp() {
+  const apiUrl = process.env.REACT_APP_API_URL;
+
+  const [inputValues, setInputValues] = useState(["", ""]);
+
+  const handleInputChange = (index, value) => {
+    const newInputValues = [...inputValues];
+    newInputValues[index] = value;
+    setInputValues(newInputValues);
+  };
+
   const navigate = useNavigate();
   const clickLink = () => {
     navigate(`/signup`);
   };
 
-  const handleClick = () => {
-    navigate(`/verify`);
+  // const handleClick = () => {
+  //   navigate(`/verify`);
+  // };
+
+  const handleClick = (e) => {
+    e.preventDefault();
+
+    let user = {
+      fullName: inputValues[1],
+      mobileNo: inputValues[0],
+    };
+    console.log("Button clicked with value:", inputValues);
+    console.log(`${apiUrl}/api/v1/user/signup`);
+    axios
+      .post(`${apiUrl}/api/v1/user/signup`, user)
+      .then((response) => {
+        // Handle the response
+        navigate(`/verify?authToken=${response.data.data}`);
+      })
+      .catch((error) => {
+        // Handle the error
+        console.error(error);
+      });
   };
 
   return (
@@ -25,7 +58,6 @@ function SignUp() {
               alt="logo"
             />
           </div>
-
           <div className="SForm">
             <div className="One">
               <img
@@ -35,47 +67,47 @@ function SignUp() {
                 alt="logo"
               />
             </div>
-
-            <div className="Two">
-              <label>Signup with your mobile number to get started</label>
-              <div className="Text">
-                <input
-                  className="Code"
-                  type="text"
-                  placeholder="+91"
-                  readOnly
-                />
-                <input
-                  className="Input"
-                  type="text"
-                  placeholder="Enter Mobile Number"
-                />
+            <form onSubmit={handleClick}>
+              <div className="Two">
+                <label>Signup with your mobile number to get started</label>
+                <div className="Text">
+                  <input
+                    className="Code"
+                    type="text"
+                    placeholder="+91"
+                    readOnly
+                  />
+                  <input
+                    className="Input"
+                    type="text"
+                    placeholder="Enter Mobile Number"
+                    onChange={(e) => handleInputChange(0, e.target.value)}
+                  />
+                </div>
+                <div className="Text">
+                  <input
+                    className="Input2"
+                    type="text"
+                    placeholder="Enter Name"
+                    onChange={(e) => handleInputChange(1, e.target.value)}
+                  />
+                </div>
               </div>
-              <div className="Text">
-                <input
-                  className="Input2"
-                  type="text"
-                  placeholder="Enter Name"
-                />
-              </div>
-            </div>
 
-            <div className="Three">
-              <label className="TC">
-                By continuing, you agree to our{" "}
-                <Link className="New2">Terms of use</Link> and{" "}
-                <Link className="New2">Privacy Policy</Link>
-              </label>
-              <input
-                type="submit"
-                className="Btn"
-                value="Request OTP"
-                onClick={() => handleClick()}
-              />
-              <label className="New" onClick={() => clickLink()}>
-                Already an user? Click here to LogIn
-              </label>
-            </div>
+              <div className="Three">
+                <label className="TC">
+                  By continuing, you agree to our{" "}
+                  <Link className="New2">Terms of use</Link> and{" "}
+                  <Link className="New2">Privacy Policy</Link>
+                </label>
+
+                <input type="submit" className="Btn" value="Request OTP" />
+
+                <label className="New" onClick={() => clickLink()}>
+                  Already an user? Click here to LogIn
+                </label>
+              </div>
+            </form>
           </div>
         </div>
 

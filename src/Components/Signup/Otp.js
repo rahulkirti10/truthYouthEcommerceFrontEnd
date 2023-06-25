@@ -3,23 +3,52 @@ import "../../Css files/SLForm.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
+import axios from "axios";
 
 const inputRefs = Array.from({ length: 6 }, () => React.createRef());
 let isFirstBackspaceClick = true;
 
-function Otp() {
+function Otp(props) {
+  const apiUrl = process.env.REACT_APP_API_URL;
+  const location = useLocation(props);
+  const searchParams = new URLSearchParams(location.search);
+  const number = searchParams.get("authToken");
+
   const navigate = useNavigate();
-  const handleClick = () => {
-    navigate(`/verify`);
-  };
 
   const [values, setValues] = useState(["", "", "", "", "", ""]);
+
+  const handleClick = (e) => {
+    e.preventDefault();
+
+    const otp =
+      values[0] + values[1] + values[2] + values[3] + values[4] + values[5];
+    console.log(otp);
+
+    let user = {
+      authToken: number,
+      otp: otp,
+    };
+
+    axios
+      .post(`${apiUrl}/api/v1/user/verifyOtp`, user, { withCredentials: true })
+      .then((response) => {
+        // Handle the response
+        console.log(response.data);
+      })
+      .catch((error) => {
+        // Handle the error
+        console.error(error);
+      });
+    // navigate(`/verify`);
+  };
 
   const handleInputChange = (index, e) => {
     const numericValue = e.target.value.replace(/[^0-9]/g, "");
     const newValues = [...values];
     newValues[index] = numericValue;
-    console.log(numericValue)
+    console.log(numericValue);
     setValues(newValues);
     if (
       numericValue === "0" ||
@@ -86,43 +115,39 @@ function Otp() {
                 alt="Logo"
               />
             </div>
-
-            <div className="Two">
-              <label className="Heading">Recieved a Verification Code?</label>
-              <label className="Subheading">
-                We've sent an OTP on your registered Mobile No. 8010xxxxxx.
-                Enter the 6 digit code
-              </label>
-              <div className="Text">
-                {inputRefs.map((ref, index) => (
-                  <input
-                    className="Code"
-                    key={index}
-                    ref={ref}
-                    type="text"
-                    value={values[index]}
-                    maxLength="1"
-                    placeholder="0"
-                    onChange={(e) => handleInputChange(index, e)}
-                    onKeyDown={(e) => handleKeyDown(index, e)}
-                  />
-                ))}
+            <form onSubmit={handleClick}>
+              <div className="Two">
+                <label className="Heading">Recieved a Verification Code?</label>
+                <label className="Subheading">
+                  We've sent an OTP on your registered Mobile No. 8010xxxxxx.
+                  Enter the 6 digit code
+                </label>
+                <div className="Text">
+                  {inputRefs.map((ref, index) => (
+                    <input
+                      className="Code"
+                      key={index}
+                      ref={ref}
+                      type="text"
+                      value={values[index]}
+                      maxLength="1"
+                      placeholder="0"
+                      onChange={(e) => handleInputChange(index, e)}
+                      onKeyDown={(e) => handleKeyDown(index, e)}
+                    />
+                  ))}
+                </div>
               </div>
-            </div>
 
-            <div className="Three">
-              <label className="TC">
-                By continuing, you agree to our{" "}
-                <Link className="New2">Terms of use</Link> and{" "}
-                <Link className="New2">Privacy Policy</Link>
-              </label>
-              <input
-                type="submit"
-                className="Btn"
-                value="Verify Otp"
-                onClick={() => handleClick()}
-              />
-            </div>
+              <div className="Three">
+                <label className="TC">
+                  By continuing, you agree to our{" "}
+                  <Link className="New2">Terms of use</Link> and{" "}
+                  <Link className="New2">Privacy Policy</Link>
+                </label>
+                <input type="submit" className="Btn" value="Verify Otp" />
+              </div>
+            </form>
           </div>
         </div>
 
