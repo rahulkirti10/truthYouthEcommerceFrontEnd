@@ -87,7 +87,7 @@ function Otp() {
             </div>
 
             <div className="Two">
-              <label className="Heading">Recieve a Verification Code?</label>
+              <label className="Heading">Recieved a Verification Code?</label>
               <label className="Subheading">
                 We've sent an OTP on your registered Mobile No. 8010xxxxxx.
                 Enter the 6 digit code
@@ -100,7 +100,7 @@ function Otp() {
                     ref={ref}
                     type="text"
                     maxLength="1"
-                    placeholder="_"
+                    placeholder="0"
                     onChange={(e) => handleInputChange(index, e)}
                     onKeyDown={(e) => handleKeyDown(index, e)}
                   />

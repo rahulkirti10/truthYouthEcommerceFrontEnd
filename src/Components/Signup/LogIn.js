@@ -21,7 +21,7 @@ function LogIn() {
             <img
               src="../Images/cloud-image.png"
               height="100%"
-              width="50%"
+              width="40%"
               alt="logo"
             />
           </div>
