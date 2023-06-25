@@ -1,21 +1,16 @@
-import React from 'react'
-import "../../Css files/Sections.css"
+import React from "react";
+import "../../Css files/Sections.css";
 
 function ExtraSection() {
   return (
-    <div className='Ex'>
-        <div className='ExOne'>
-        </div>
-        <div className='ExTwo'>
-          <div className='ExRight'>
-
-          </div>
-          <div className='ExLeft'>
-            
-          </div>
-        </div>
+    <div className="Ex">
+      <div className="ExOne"></div>
+      <div className="ExTwo">
+        <div className="ExRight"></div>
+        <div className="ExLeft"></div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default ExtraSection
+export default ExtraSection;

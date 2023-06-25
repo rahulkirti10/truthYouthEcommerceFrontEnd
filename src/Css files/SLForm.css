@@ -1,343 +1,333 @@
-.SLPage
-{
-    height: 100vh;
-    width: 100vw;
-    background-color: #c9c9c9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.SLPage {
+  height: 100vh;
+  width: 100vw;
+  background-color: #c9c9c9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.SLBox
-{
-    height: 95%;
-    width: 60%;
-    background-color : white;
-    display: flex;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5), 0 6px 20px 0 rgba(0,0,0,0.49);
+.SLBox {
+  height: 95%;
+  width: 60%;
+  background-color: white;
+  display: flex;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.49);
 }
 
-.SLBoxLeft
-{
-    width: 50%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: flex-end;
+.SLBoxLeft {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
 }
 
-.LeftTop
-{
-    width: 100%;
-    height: 20%;   
+.LeftTop {
+  width: 100%;
+  height: 20%;
 }
 
-.LeftTop img
-{
-transform: rotate(180deg);
+.LeftTop img {
+  transform: rotate(180deg);
 }
 
-.SLBoxRight
-{
-    width: 50%;
-    height: 100%;   
-    display: flex;
-    flex-direction: column;
+.SLBoxRight {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.RightTop
-{
-    width: 100%;
-    height: 55%;   
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
+.RightTop {
+  width: 100%;
+  height: 55%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 
-.RightDown
-{
-    width: 100%;
-    height: 45%;   
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
+.RightDown {
+  width: 100%;
+  height: 45%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 /* /---------------------------------------------------------------------------------------------\ */
 
-.LForm
-{
-    height: 80%;
-    width: 95%;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
+.LForm {
+  height: 80%;
+  width: 95%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
 }
-.LForm .One
-{
-    height: 20%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.LForm .One {
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.LForm .Two
-{
-    height: 25%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: flex-start;
+.LForm .Two {
+  height: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
 }
 
-.LForm .Two label
-{
-    font-weight:600;
-    font-size: 25px;
+.LForm .Two label {
+  font-weight: 600;
+  font-size: 25px;
 }
 
-.LForm .Two .Text
-{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+.LForm .Two .Text {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
-.Text .Input
-{
-    border : 0;
-    outline: none;
-    border-radius: 5px;  
-    height: 45px;
-    width: 292px;
-    margin-left: 10px;
-    font-size: 20px;
-    background-color: #F1F1F1;
-    padding-left: 10px;
-    padding-bottom: 5px;
+.Text .Input {
+  border: 0;
+  outline: none;
+  border-radius: 5px;
+  height: 45px;
+  width: 292px;
+  margin-left: 10px;
+  font-size: 20px;
+  background-color: #f1f1f1;
+  padding-left: 10px;
+  padding-bottom: 5px;
 }
-.Text .Input::placeholder
-{
-    color: #626262;
-    font-weight: 600;
-    font-size: 15px;
+.Text .Input::placeholder {
+  color: #626262;
+  font-weight: 600;
+  font-size: 15px;
 }
 
-.Text .Input2
-{
-    border : 0;
-    outline: none;
-    border-radius: 5px;  
-    height: 45px;
-    width: 100%;
-    font-size: 20px;
-    background-color: #F1F1F1;
-    padding-left: 10px;
-    padding-bottom: 5px;
+.Text .Input2 {
+  border: 0;
+  outline: none;
+  border-radius: 5px;
+  height: 45px;
+  width: 100%;
+  font-size: 20px;
+  background-color: #f1f1f1;
+  padding-left: 10px;
+  padding-bottom: 5px;
 }
-.Text .Input2::placeholder
-{
-    color: #626262;
-    font-weight: 600;
-    font-size: 15px;
+.Text .Input2::placeholder {
+  color: #626262;
+  font-weight: 600;
+  font-size: 15px;
 }
 
-.Text .Code
-{
-    border : 0;
-    outline: none;
-    border-radius: 5px;
-    height: 45px;
-    width: 61px;
-    background-color: #F1F1F1;
-    cursor:default;
-    padding-left: 10px;
+.Text .Code {
+  border: 0;
+  outline: none;
+  border-radius: 5px;
+  height: 45px;
+  width: 61px;
+  background-color: #f1f1f1;
+  cursor: default;
+  padding-left: 10px;
 }
-.Text .Code::placeholder
-{
-    color: #626262;
-    font-weight: 600;
-    font-size: 15px;
+.Text .Code::placeholder {
+  color: #626262;
+  font-weight: 600;
+  font-size: 15px;
 }
 
-
-.LForm .Three
-{
-    height: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+.LForm .Three {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
-.Three .TC
-{
-    width: 100%;
-    font-size: 13px;
-    margin-top: 30px;
+.Three .TC {
+  width: 100%;
+  font-size: 13px;
+  margin-top: 30px;
 }
 
-.TC .New2
-{
-    font-size: 14px;
-    font-weight: 600;
-    color: #1b4b66;
+.TC .New2 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1b4b66;
 }
 
-.Three .Btn
-{
-    height: 20%;
-    width: 100%;
-    border-radius:5px ;
-    margin-top: 20px;
-    font-size: 16px;
-    font-weight: 600;
-    background-color: #1b4b66;
-    text-decoration: none;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 1s;
+.Three .Btn {
+  height: 20%;
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  border: 0;
+  cursor: pointer;
+  background-color: #1b4b66;
+  color: white;
+  transition: 1s;
 }
 
-.Three .Btn:hover
-{
-    background-color: #616dba;
+.Three .Btn:hover {
+  background-color: #2b77a2;
 }
 
-.Three .New
-{
-    width: 100%;
-    font-size: 14px;
-    margin-top: 20px;
-    font-weight: 600;
-    color: #1b4b66;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    cursor: pointer;
+.Three .New {
+  width: 100%;
+  font-size: 14px;
+  margin-top: 20px;
+  font-weight: 600;
+  color: #1b4b66;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /* /---------------------------------------------------------------------------------------------\ */
 
-.SForm
-{
-    height: 85%;
-    width: 95%;
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
+.SForm {
+  height: 85%;
+  width: 95%;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
 }
-.SForm .One
-{
-    height: 20%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.SForm .One {
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.SForm .Two
-{
-    height: 40%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: flex-start;
+.SForm .Two {
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
 }
 
-.SForm .Two label
-{
-    font-weight:600;
-    font-size: 23px;
+.SForm .Two label {
+  font-weight: 600;
+  font-size: 23px;
 }
 
-.SForm .Two .Text
-{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+.SForm .Two .Text {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
-.SForm .Three
-{
-    height: 40%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+.SForm .Three {
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+}
+
+.SForm .Three .TC {
+  width: 100%;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.SForm .Three .Btn {
+  height: 25%;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  border: 0;
+  cursor: pointer;
+  background-color: #1b4b66;
+  color: white;
+  transition: 1s;
+}
+
+.SForm .Three .New {
+  width: 100%;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1b4b66;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /* /---------------------------------------------------------------------------------------------\ */
 
-.OForm
-{
-    height: 85%;
-    width: 95%;
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
+.OForm {
+  height: 85%;
+  width: 95%;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
 }
-.OForm .One
-{
-    height: 20%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.OForm .One {
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.OForm .Two
-{
-    height: 35%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: flex-start;
+.OForm .Two {
+  height: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
 }
 
-.OForm .Two .Heading
-{
-    font-weight:600;
-    font-size: 25px;
+.OForm .Two .Heading {
+  font-weight: 600;
+  font-size: 25px;
 }
 
-.OForm .Two .Subheading
-{
-    font-weight:400;
-    font-size: 13px;
+.OForm .Two .Subheading {
+  font-weight: 400;
+  font-size: 13px;
 }
 
-.OForm .Two .Text
-{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+.OForm .Two .Text {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
-.OForm .Two .Text .Code
-{
-    border : 0;
-    outline: none;
-    border-radius: 5px;
-    text-align: center;
-    font-size: 20px;
-    cursor: text;
-    text-decoration: underline;
-    height: 45px;
-    width: 45px;
-    background-color: #c9c9c9;
+.OForm .Two .Text .Code {
+  border: 0;
+  outline: none;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 20px;
+  cursor: text;
+  text-decoration: underline;
+  height: 45px;
+  width: 45px;
+  background-color: #c9c9c9;
+  text-align: center;
+  padding: 10px;
 }
 
-.OForm .Two .Text .Code::placeholder
-{
-font-size: 20px;
+.OForm .Two .Text .Code::placeholder {
+  font-size: 20px;
+  color: #626262;
+  font-weight: 600;
 }
-.OForm .Three
-{
-    height: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+.OForm .Three {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
