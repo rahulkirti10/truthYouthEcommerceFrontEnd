@@ -1,9 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "../../Css files/SLForm.css";
 
 function LogIn() {
+  const [number, setNumber] = useState('');
   const navigate = useNavigate();
   const clickLink = () => {
     navigate(`/signup`);
@@ -12,6 +13,12 @@ function LogIn() {
   const handleClick = () => {
     navigate(`/verify`);
   };
+
+
+const handleContact = (e) => {
+  const numericValue = e.target.value.replace(/[^0-9]/g, "");
+  setNumber(numericValue);
+    }
 
   return (
     <div className="SLPage">
@@ -49,6 +56,7 @@ function LogIn() {
                   className="Input"
                   type="text"
                   placeholder="Enter Mobile Number"
+                  onChange={handleContact} value={number}
                 />
               </div>
             </div>
@@ -63,6 +71,7 @@ function LogIn() {
                 type="submit"
                 className="Btn"
                 value="Request OTP"
+
                 onClick={() => handleClick()}
               />
 

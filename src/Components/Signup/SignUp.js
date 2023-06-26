@@ -7,16 +7,31 @@ import axios from "axios";
 
 function SignUp() {
   const apiUrl = process.env.REACT_APP_API_URL;
+  
 
   const [inputValues, setInputValues] = useState(["", ""]);
+  const [number, setNumber] = useState('');
+  const handleInputChange = (e,index, value) => {
+    const numericValue = e.target.value.replace(/[^0-9]/g, "");
+    setNumber(numericValue);
+    if(numericValue >='0' && numericValue <='9'){
+      handleContact(index, value);
+    }
+  };
 
-  const handleInputChange = (index, value) => {
+  const handleInputChangeName = (index, value) => {
     const newInputValues = [...inputValues];
     newInputValues[index] = value;
     setInputValues(newInputValues);
   };
 
   const navigate = useNavigate();
+  function handleContact(index, value){
+    const newInputValues = [...inputValues];
+    newInputValues[index] = value;
+    setInputValues(newInputValues);
+      }
+
   const clickLink = () => {
     navigate(`/signup`);
   };
@@ -81,7 +96,8 @@ function SignUp() {
                     className="Input"
                     type="text"
                     placeholder="Enter Mobile Number"
-                    onChange={(e) => handleInputChange(0, e.target.value)}
+                    value={number}
+                    onChange={(e) => handleInputChange(e, 0, e.target.value)}
                   />
                 </div>
                 <div className="Text">
@@ -89,7 +105,7 @@ function SignUp() {
                     className="Input2"
                     type="text"
                     placeholder="Enter Name"
-                    onChange={(e) => handleInputChange(1, e.target.value)}
+                    onChange={(e) => handleInputChangeName(1, e.target.value)}
                   />
                 </div>
               </div>
