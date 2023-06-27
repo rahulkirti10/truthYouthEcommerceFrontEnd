@@ -72,16 +72,17 @@
   align-items: center;
 }
 .LForm .Two {
-  height: 35%;
+  height: 42%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: flex-start;
 }
 
 .LForm .Two label {
   font-weight: 600;
   font-size: 30px;
+  margin-top: 10px;
 }
 
 .LForm .Two .Text {
@@ -89,6 +90,7 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  margin-top: 10px;
 }
 
 .Text .Input {
@@ -199,6 +201,14 @@
   flex-direction: column;
 }
 
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: red;
+  margin-top: 20px;
+}
+
 /* /---------------------------------------------------------------------------------------------\ */
 
 .SForm {
@@ -219,13 +229,14 @@
   height: 60%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: flex-start;
 }
 
 .SForm .Two label {
   font-weight: 600;
   font-size: 23px;
+  margin-top: 10px;
 }
 
 .SForm .Two .Text {
@@ -233,13 +244,7 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-}
-
-.error {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: red;
+  margin-top: 10px;
 }
 
 .SForm .Three {
@@ -285,7 +290,7 @@
   height: 85%;
   width: 95%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   flex-direction: column;
 }
 .OForm .One {
@@ -295,12 +300,11 @@
   align-items: center;
 }
 .OForm .Two {
-  height: 50%;
+  height: 60%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: flex-start;
-  border: 1px solid black;
 }
 
 .OForm .Two .Heading {
@@ -327,9 +331,10 @@
   cursor: text;
   height: 52px;
   width: 52px;
+  margin-top: 10px;
   margin-right: 10px;
   background-color: #d9d9d9;
-  padding: 0px;
+  padding: 0;
 }
 
 .OForm .Two .Text .Code::placeholder {
@@ -338,7 +343,7 @@
   font-weight: 600;
 }
 .OForm .Three {
-  height: 50%;
+  height: 40%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

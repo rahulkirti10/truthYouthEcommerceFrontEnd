@@ -45,6 +45,8 @@ function LogIn() {
         emailOrMobile: inputValues[0],
       };
 
+      setErrorMessage("");
+
       console.log("Button clicked with value:", user, {
         withCredentials: true,
       });

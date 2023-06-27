@@ -55,8 +55,9 @@ function SignUp() {
         mobileNo: inputValues[0],
       };
 
+      setErrorMessage("");
       console.log("Button clicked with value:", inputValues);
-      console.log(`${apiUrl}/api/v1/user/login`);
+      console.log(`${apiUrl}/api/v1/user/signup`);
       axios
         .post(`${apiUrl}/api/v1/user/login`, user)
         .then((response) => {

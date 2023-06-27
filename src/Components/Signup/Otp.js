@@ -10,6 +10,7 @@ const inputRefs = Array.from({ length: 6 }, () => React.createRef());
 let isFirstBackspaceClick = true;
 
 function Otp(props) {
+  const [errorMessage, setErrorMessage] = useState("");
   const apiUrl = process.env.REACT_APP_API_URL;
   const location = useLocation(props);
   const searchParams = new URLSearchParams(location.search);
@@ -26,21 +27,31 @@ function Otp(props) {
       values[0] + values[1] + values[2] + values[3] + values[4] + values[5];
     console.log(otp);
 
-    let user = {
-      authToken: number,
-      otp: otp,
-    };
-
-    axios
-      .post(`${apiUrl}/api/v1/user/verifyOtp`, user, { withCredentials: true })
-      .then((response) => {
-        // Handle the response
-        console.log(response.data);
-      })
-      .catch((error) => {
-        // Handle the error
-        console.error(error);
-      });
+    if (otp === "") {
+      setErrorMessage("Please Enter OTP");
+    } else if (otp.length !== 6) {
+      setErrorMessage("Enter Complete OTP");
+    } else {
+      let user = {
+        authToken: number,
+        otp: otp,
+      };
+      setErrorMessage("");
+      axios
+        .post(`${apiUrl}/api/v1/user/verifyOtp`, user, {
+          withCredentials: true,
+        })
+        .then((response) => {
+          // Handle the response
+          navigate(`/`);
+          console.log(response.data);
+        })
+        .catch((error) => {
+          // Handle the error
+          console.error(error);
+          setErrorMessage(error.response.data.message);
+        });
+    }
     // navigate(`/verify`);
   };
 
@@ -137,6 +148,7 @@ function Otp(props) {
                     />
                   ))}
                 </div>
+                {errorMessage && <div className="error">{errorMessage}</div>}
               </div>
 
               <div className="Three">
