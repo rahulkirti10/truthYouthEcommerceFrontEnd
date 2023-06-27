@@ -22,7 +22,8 @@ function Otp(props) {
   const handleClick = (e) => {
     e.preventDefault();
 
-    const otp = values[0] + values[1] + values[2] + values[3] + values[4] + values[5];
+    const otp =
+      values[0] + values[1] + values[2] + values[3] + values[4] + values[5];
     console.log(otp);
 
     let user = {
@@ -100,7 +101,7 @@ function Otp(props) {
             <img
               src="../Images/cloud-image.png"
               height="100%"
-              width="50%"
+              width="40%"
               alt="logo"
             />
           </div>
@@ -114,7 +115,7 @@ function Otp(props) {
                 alt="Logo"
               />
             </div>
-            <form onSubmit={handleClick}>
+            <form onSubmit={handleClick} className="form">
               <div className="Two">
                 <label className="Heading">Recieved a Verification Code?</label>
                 <label className="Subheading">

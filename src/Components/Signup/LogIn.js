@@ -1,24 +1,56 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "../../Css files/SLForm.css";
+import axios from "axios";
 
 function LogIn() {
-  const [number, setNumber] = useState('');
+  const apiUrl = process.env.REACT_APP_API_URL;
+
+  const [inputValues, setInputValues] = useState(["", ""]);
+  const [number, setNumber] = useState("");
+
+  const handleInputChange = (e, index, value) => {
+    const numericValue = e.target.value.replace(/[^0-9]/g, "");
+    setNumber(numericValue);
+    if (numericValue >= "0" && numericValue <= "9") {
+      handleContact(index, value);
+    }
+  };
+
   const navigate = useNavigate();
+  function handleContact(index, value) {
+    const newInputValues = [...inputValues];
+    newInputValues[index] = value;
+    setInputValues(newInputValues);
+  }
   const clickLink = () => {
     navigate(`/signup`);
   };
 
-  const handleClick = () => {
-    navigate(`/verify`);
+  // const handleClick = () => {
+  //   navigate(`/verify`);
+  // };
+
+  const handleClick = (e) => {
+    e.preventDefault();
+
+    let user = {
+      emailOrMobile: inputValues[0],
+    };
+    console.log("Button clicked with value:", user);
+    console.log(`${apiUrl}/api/v1/user/login`);
+    axios
+      .post(`${apiUrl}/api/v1/user/login`, user)
+      .then((response) => {
+        // Handle the response
+        navigate(`/verify?authToken=${response.data.data}`);
+      })
+      .catch((error) => {
+        // Handle the error
+        console.error(error);
+      });
   };
-
-
-const handleContact = (e) => {
-  const numericValue = e.target.value.replace(/[^0-9]/g, "");
-  setNumber(numericValue);
-    }
 
   return (
     <div className="SLPage">
@@ -42,43 +74,41 @@ const handleContact = (e) => {
                 alt="logo"
               />
             </div>
-
-            <div className="Two">
-              <label>LogIn to your account</label>
-              <div className="Text">
-                <input
-                  className="Code"
-                  type="text"
-                  placeholder="+91"
-                  readOnly
-                />
-                <input
-                  className="Input"
-                  type="text"
-                  placeholder="Enter Mobile Number"
-                  onChange={handleContact} value={number}
-                />
+            <form onSubmit={handleClick} className="form">
+              <div className="Two">
+                <label>LogIn to your account</label>
+                <div className="Text">
+                  <input
+                    className="Code"
+                    type="text"
+                    placeholder="+91"
+                    readOnly
+                  />
+                  <input
+                    className="Input"
+                    type="text"
+                    placeholder="Enter Mobile Number"
+                    onChange={(event) =>
+                      handleInputChange(event, 0, event.target.value)
+                    }
+                    value={number}
+                  />
+                </div>
               </div>
-            </div>
 
-            <div className="Three">
-              <label className="TC">
-                By continuing, you agree to our{" "}
-                <Link className="New2">Terms of use</Link> and{" "}
-                <Link className="New2">Privacy Policy</Link>
-              </label>
-              <input
-                type="submit"
-                className="Btn"
-                value="Request OTP"
+              <div className="Three">
+                <label className="TC">
+                  By continuing, you agree to our{" "}
+                  <Link className="New2">Terms of use</Link> and{" "}
+                  <Link className="New2">Privacy Policy</Link>
+                </label>
+                <input type="submit" className="Btn" value="Request OTP" />
 
-                onClick={() => handleClick()}
-              />
-
-              <label className="New" onClick={() => clickLink()}>
-                New to here? Create an account
-              </label>
-            </div>
+                <label className="New" onClick={() => clickLink()}>
+                  New to here? Create an account
+                </label>
+              </div>
+            </form>
           </div>
         </div>
 

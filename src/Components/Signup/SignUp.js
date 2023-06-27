@@ -7,14 +7,13 @@ import axios from "axios";
 
 function SignUp() {
   const apiUrl = process.env.REACT_APP_API_URL;
-  
 
   const [inputValues, setInputValues] = useState(["", ""]);
-  const [number, setNumber] = useState('');
-  const handleInputChange = (e,index, value) => {
+  const [number, setNumber] = useState("");
+  const handleInputChange = (e, index, value) => {
     const numericValue = e.target.value.replace(/[^0-9]/g, "");
     setNumber(numericValue);
-    if(numericValue >='0' && numericValue <='9'){
+    if (numericValue >= "0" && numericValue <= "9") {
       handleContact(index, value);
     }
   };
@@ -26,14 +25,14 @@ function SignUp() {
   };
 
   const navigate = useNavigate();
-  function handleContact(index, value){
+  function handleContact(index, value) {
     const newInputValues = [...inputValues];
     newInputValues[index] = value;
     setInputValues(newInputValues);
-      }
+  }
 
   const clickLink = () => {
-    navigate(`/signup`);
+    navigate(`/login`);
   };
 
   // const handleClick = () => {
@@ -48,9 +47,9 @@ function SignUp() {
       mobileNo: inputValues[0],
     };
     console.log("Button clicked with value:", inputValues);
-    console.log(`${apiUrl}/api/v1/user/signup`);
+    console.log(`${apiUrl}/api/v1/user/login`);
     axios
-      .post(`${apiUrl}/api/v1/user/signup`, user)
+      .post(`${apiUrl}/api/v1/user/login`, user)
       .then((response) => {
         // Handle the response
         navigate(`/verify?authToken=${response.data.data}`);
@@ -69,7 +68,7 @@ function SignUp() {
             <img
               src="../Images/cloud-image.png"
               height="100%"
-              width="50%"
+              width="40%"
               alt="logo"
             />
           </div>
@@ -82,7 +81,7 @@ function SignUp() {
                 alt="logo"
               />
             </div>
-            <form onSubmit={handleClick}>
+            <form onSubmit={handleClick} className="form">
               <div className="Two">
                 <label>Signup with your mobile number to get started</label>
                 <div className="Text">

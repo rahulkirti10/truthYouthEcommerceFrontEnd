@@ -72,7 +72,7 @@
   align-items: center;
 }
 .LForm .Two {
-  height: 25%;
+  height: 35%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -193,6 +193,12 @@
   cursor: pointer;
 }
 
+.form {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
 /* /---------------------------------------------------------------------------------------------\ */
 
 .SForm {
@@ -202,6 +208,7 @@
   justify-content: flex-end;
   flex-direction: column;
 }
+
 .SForm .One {
   height: 20%;
   display: flex;
@@ -209,7 +216,7 @@
   align-items: center;
 }
 .SForm .Two {
-  height: 40%;
+  height: 53%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -229,7 +236,7 @@
 }
 
 .SForm .Three {
-  height: 40%;
+  height: 47%;
   display: flex;
   flex-direction: column;
 }
@@ -281,11 +288,12 @@
   align-items: center;
 }
 .OForm .Two {
-  height: 35%;
+  height: 50%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: flex-start;
+  border: 1px solid black;
 }
 
 .OForm .Two .Heading {
