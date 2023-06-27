@@ -8,6 +8,7 @@ import axios from "axios";
 function SignUp() {
   const apiUrl = process.env.REACT_APP_API_URL;
 
+  const [errorMessage, setErrorMessage] = useState("");
   const [inputValues, setInputValues] = useState(["", ""]);
   const [number, setNumber] = useState("");
   const handleInputChange = (e, index, value) => {
@@ -42,22 +43,32 @@ function SignUp() {
   const handleClick = (e) => {
     e.preventDefault();
 
-    let user = {
-      fullName: inputValues[1],
-      mobileNo: inputValues[0],
-    };
-    console.log("Button clicked with value:", inputValues);
-    console.log(`${apiUrl}/api/v1/user/login`);
-    axios
-      .post(`${apiUrl}/api/v1/user/login`, user)
-      .then((response) => {
-        // Handle the response
-        navigate(`/verify?authToken=${response.data.data}`);
-      })
-      .catch((error) => {
-        // Handle the error
-        console.error(error);
-      });
+    if (inputValues[0] === "") {
+      setErrorMessage("Please Enter Mobile Number");
+    } else if (inputValues[0].length !== 10) {
+      setErrorMessage("Please Enter a Valid Mobile Number");
+    } else if (inputValues[1] === "") {
+      setErrorMessage("Please Enter Full Name");
+    } else {
+      const user = {
+        fullName: inputValues[1],
+        mobileNo: inputValues[0],
+      };
+
+      console.log("Button clicked with value:", inputValues);
+      console.log(`${apiUrl}/api/v1/user/login`);
+      axios
+        .post(`${apiUrl}/api/v1/user/login`, user)
+        .then((response) => {
+          // Handle the response
+          navigate(`/verify?authToken=${response.data.data}`);
+        })
+        .catch((error) => {
+          // Handle the error
+          console.error(error);
+          setErrorMessage(error.response.data.message);
+        });
+    }
   };
 
   return (
@@ -76,8 +87,8 @@ function SignUp() {
             <div className="One">
               <img
                 src="../Images/coral.png"
-                height="80%"
-                width="90%"
+                height="90%"
+                width="80%"
                 alt="logo"
               />
             </div>
@@ -107,6 +118,7 @@ function SignUp() {
                     onChange={(e) => handleInputChangeName(1, e.target.value)}
                   />
                 </div>
+                {errorMessage && <div className="error">{errorMessage}</div>}
               </div>
 
               <div className="Three">
@@ -135,7 +147,6 @@ function SignUp() {
               alt="logo"
             />
           </div>
-
           <div className="RightDown">
             <img
               src="../Images/cloud-image.png"
