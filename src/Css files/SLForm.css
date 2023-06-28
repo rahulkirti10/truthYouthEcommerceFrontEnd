@@ -72,7 +72,7 @@
 
 .LForm {
   height: 80%;
-  width: 95%;
+  width: 90%;
   display: flex;
   justify-content: space-around;
   flex-direction: column;
@@ -84,7 +84,7 @@
   align-items: center;
 }
 .LForm .Two {
-  height: 42%;
+  height: 160px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -102,7 +102,7 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  margin-top: 10px;
+  margin-top: 25px;
 }
 
 .Text .Input {
@@ -224,7 +224,7 @@
 
 .SForm {
   height: 85%;
-  width: 95%;
+  width: 90%;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
@@ -237,7 +237,7 @@
   align-items: center;
 }
 .SForm .Two {
-  height: 60%;
+  height: 230px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -255,12 +255,13 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .SForm .Three {
   height: 40%;
   display: flex;
+  margin-top: 10px;
   flex-direction: column;
 }
 
@@ -298,7 +299,7 @@
 
 .OForm {
   height: 85%;
-  width: 95%;
+  width: 90%;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
@@ -310,7 +311,7 @@
   align-items: center;
 }
 .OForm .Two {
-  height: 60%;
+  height: 190px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -325,6 +326,8 @@
 .OForm .Two .Subheading {
   font-weight: 400;
   font-size: 14px;
+  margin-top: 12px;
+  margin-bottom: 12px;
 }
 
 .OForm .Two .Text {
