@@ -4,12 +4,14 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
+import ScaleLoader from "react-spinners/ScaleLoader";
 import axios from "axios";
 
 const inputRefs = Array.from({ length: 6 }, () => React.createRef());
 let isFirstBackspaceClick = true;
 
 function Otp(props) {
+  const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const apiUrl = process.env.REACT_APP_API_URL;
   const location = useLocation(props);
@@ -36,6 +38,7 @@ function Otp(props) {
         authToken: number,
         otp: otp,
       };
+      setLoading(true);
       setErrorMessage("");
       axios
         .post(`${apiUrl}/api/v1/user/verifyOtp`, user, {
@@ -43,12 +46,14 @@ function Otp(props) {
         })
         .then((response) => {
           // Handle the response
+          setLoading(false);
           navigate(`/`);
           console.log(response.data);
         })
         .catch((error) => {
           // Handle the error
           console.error(error);
+          setLoading(false);
           setErrorMessage(error.response.data.message);
         });
     }
@@ -157,7 +162,19 @@ function Otp(props) {
                   <Link className="New2">Terms of use</Link> and{" "}
                   <Link className="New2">Privacy Policy</Link>
                 </label>
-                <input type="submit" className="Btn" value="Verify Otp" />
+
+                {loading ? (
+                  <div className="Loading">
+                    <ScaleLoader
+                      color="#ffffff"
+                      loading={loading}
+                      height={25}
+                      width={3}
+                    />
+                  </div>
+                ) : (
+                  <input type="submit" className="Btn" value="Verify Otp" />
+                )}
               </div>
             </form>
           </div>

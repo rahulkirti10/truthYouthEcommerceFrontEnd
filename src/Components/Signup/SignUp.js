@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "../../Css files/SLForm.css";
 import axios from "axios";
+import ScaleLoader from "react-spinners/ScaleLoader";
 
 function SignUp() {
   const apiUrl = process.env.REACT_APP_API_URL;
@@ -11,6 +12,7 @@ function SignUp() {
   const [errorMessage, setErrorMessage] = useState("");
   const [inputValues, setInputValues] = useState(["", ""]);
   const [number, setNumber] = useState("");
+  const [loading, setLoading] = useState(false);
   const handleInputChange = (e, index, value) => {
     const numericValue = e.target.value.replace(/[^0-9]/g, "");
     setNumber(numericValue);
@@ -55,17 +57,20 @@ function SignUp() {
         mobileNo: inputValues[0],
       };
 
+      setLoading(true);
       setErrorMessage("");
       console.log("Button clicked with value:", inputValues);
       console.log(`${apiUrl}/api/v1/user/signup`);
       axios
-        .post(`${apiUrl}/api/v1/user/login`, user)
+        .post(`${apiUrl}/api/v1/user/signup`, user)
         .then((response) => {
           // Handle the response
+          setLoading(false);
           navigate(`/verify?authToken=${response.data.data}`);
         })
         .catch((error) => {
           // Handle the error
+          setLoading(false);
           console.error(error);
           setErrorMessage(error.response.data.message);
         });
@@ -128,8 +133,18 @@ function SignUp() {
                   <Link className="New2">Terms of use</Link> and{" "}
                   <Link className="New2">Privacy Policy</Link>
                 </label>
-
-                <input type="submit" className="Btn" value="Request OTP" />
+                {loading ? (
+                  <div className="Loading">
+                    <ScaleLoader
+                      color="#ffffff"
+                      loading={loading}
+                      height={25}
+                      width={3}
+                    />
+                  </div>
+                ) : (
+                  <input type="submit" className="Btn" value="Request Otp" />
+                )}
 
                 <label className="New" onClick={() => clickLink()}>
                   Already an user? Click here to LogIn

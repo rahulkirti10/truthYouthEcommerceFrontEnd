@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "../../Css files/SLForm.css";
 import axios from "axios";
+import ScaleLoader from "react-spinners/ScaleLoader";
 
 function LogIn() {
   const apiUrl = process.env.REACT_APP_API_URL;
@@ -10,6 +11,7 @@ function LogIn() {
   const [errorMessage, setErrorMessage] = useState("");
   const [inputValues, setInputValues] = useState(["", ""]);
   const [number, setNumber] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleInputChange = (e, index, value) => {
     const numericValue = e.target.value.replace(/[^0-9]/g, "");
@@ -44,7 +46,7 @@ function LogIn() {
       let user = {
         emailOrMobile: inputValues[0],
       };
-
+      setLoading(true);
       setErrorMessage("");
 
       console.log("Button clicked with value:", user, {
@@ -55,11 +57,13 @@ function LogIn() {
         .post(`${apiUrl}/api/v1/user/login`, user)
         .then((response) => {
           // Handle the response
+          setLoading(false);
           navigate(`/verify?authToken=${response.data.data}`);
         })
         .catch((error) => {
           // Handle the error
           console.error(error);
+          setLoading(false);
           setErrorMessage(error.response.data.message);
         });
     }
@@ -114,7 +118,18 @@ function LogIn() {
                   <Link className="New2">Terms of use</Link> and{" "}
                   <Link className="New2">Privacy Policy</Link>
                 </label>
-                <input type="submit" className="Btn" value="Request OTP" />
+                {loading ? (
+                  <div className="Loading">
+                    <ScaleLoader
+                      color="#ffffff"
+                      loading={loading}
+                      height={25}
+                      width={3}
+                    />
+                  </div>
+                ) : (
+                  <input type="submit" className="Btn" value="Request Otp" />
+                )}
 
                 <label className="New" onClick={() => clickLink()}>
                   New to here? Create an account

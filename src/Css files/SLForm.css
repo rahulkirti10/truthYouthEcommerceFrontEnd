@@ -56,6 +56,18 @@
   align-items: flex-end;
 }
 
+.Loading {
+  height: 20%;
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 20px;
+  background-color: #1b4b66;
+  transition: 1s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* /---------------------------------------------------------------------------------------------\ */
 
 .LForm {
@@ -331,7 +343,7 @@
   cursor: text;
   height: 52px;
   width: 52px;
-  margin-top: 10px;
+  margin-top: 5px;
   margin-right: 10px;
   background-color: #d9d9d9;
   padding: 0;
@@ -347,5 +359,38 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  align-items: center;
+}
+.OForm .Three .TC {
+  width: 100%;
+  font-size: 14px;
+  margin-top: 10px;
+}
+.OForm .Three .Btn {
+  height: 25%;
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  border: 0;
+  cursor: pointer;
+  background-color: #1b4b66;
+  color: white;
+  transition: 1s;
+}
+.OForm .Three .Btn:hover {
+  background-color: #2b77a2;
+}
+
+.OForm .Three .Loading {
+  height: 25%;
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 20px;
+  background-color: #1b4b66;
+  transition: 1s;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
