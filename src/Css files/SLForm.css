@@ -167,7 +167,6 @@
 .Three .TC {
   width: 100%;
   font-size: 14px;
-  margin-top: 30px;
 }
 
 .TC .New2 {
@@ -218,7 +217,7 @@
   align-items: center;
   justify-content: center;
   color: red;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 /* /---------------------------------------------------------------------------------------------\ */
@@ -268,7 +267,6 @@
 .SForm .Three .TC {
   width: 100%;
   font-size: 13px;
-  margin-top: 5px;
 }
 
 .SForm .Three .Btn {

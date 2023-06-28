@@ -114,6 +114,7 @@ function SignUp() {
                     placeholder="Enter Mobile Number"
                     value={number}
                     onChange={(e) => handleInputChange(e, 0, e.target.value)}
+                    maxLength={10}
                   />
                 </div>
                 <div className="Text">

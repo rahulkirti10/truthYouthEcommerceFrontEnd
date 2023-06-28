@@ -104,6 +104,7 @@ function LogIn() {
                   <input
                     className="Input"
                     type="text"
+                    maxLength={10}
                     placeholder="Enter Mobile Number"
                     onChange={(e) => handleInputChange(e, 0, e.target.value)}
                     value={number}
