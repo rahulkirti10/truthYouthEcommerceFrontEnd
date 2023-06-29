@@ -12,7 +12,7 @@ function LogIn() {
   const [errorMessage, setErrorMessage] = useState("");
   const [inputValues, setInputValues] = useState(["", ""]);
   const [number, setNumber] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const axiosInstance = axios.create({
     timeout: 15000, // Set the timeout duration in milliseconds (e.g., 5000ms = 5 seconds)
