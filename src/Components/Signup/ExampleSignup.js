@@ -11,7 +11,7 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 const inputRefs = Array.from({ length: 6 }, () => React.createRef());
 let isFirstBackspaceClick = true;
 
-function Otp(props) {
+function ExampleSignup(props) {
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const apiUrl = process.env.REACT_APP_API_URL;
@@ -200,4 +200,4 @@ function Otp(props) {
   );
 }
 
-export default Otp;
+export default ExampleSignup;

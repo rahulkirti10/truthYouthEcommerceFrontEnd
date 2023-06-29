@@ -1,8 +1,8 @@
 import React from "react";
+import "./ExampleCss.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import "../../Css files/SLForm.css";
 import axios from "axios";
 import ScaleLoader from "react-spinners/ScaleLoader";
 
@@ -33,14 +33,6 @@ function SignUp() {
     newInputValues[index] = value;
     setInputValues(newInputValues);
   }
-
-  const clickLink = () => {
-    navigate(`/login`);
-  };
-
-  // const handleClick = () => {
-  //   navigate(`/verify`);
-  // };
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -78,10 +70,10 @@ function SignUp() {
   };
 
   return (
-    <div className="SLPage">
-      <div className="SLBox">
-        <div className="SLBoxLeft">
-          <div className="LeftTop">
+    <div className="FormPage">
+      <div className="FormBox">
+        <div className="LeftBox">
+          <div className="LeftCloud">
             <img
               src="../Images/cloud-image.png"
               height="100%"
@@ -89,51 +81,45 @@ function SignUp() {
               alt="logo"
             />
           </div>
-          <div className="SForm">
-            <div className="One">
-              <img
-                src="../Images/coral.png"
-                height="90%"
-                width="80%"
-                alt="logo"
-              />
+          <div className="FormLogo"></div>
+          <div className="FormWrapper">
+            <div className="SFormTitle">
+              Signup with your mobile number to get started.
             </div>
-            <form onSubmit={handleClick} className="form">
-              <div className="Two">
-                <label>Signup with your mobile number to get started</label>
-                <div className="Text">
-                  <input
-                    className="Code"
-                    type="text"
-                    placeholder="+91"
-                    readOnly
-                  />
-                  <input
-                    className="Input"
-                    type="text"
-                    placeholder="Enter Mobile Number"
-                    value={number}
-                    onChange={(e) => handleInputChange(e, 0, e.target.value)}
-                    maxLength={10}
-                  />
-                </div>
-                <div className="Text">
-                  <input
-                    className="Input2"
-                    type="text"
-                    placeholder="Enter Name"
-                    onChange={(e) => handleInputChangeName(1, e.target.value)}
-                  />
-                </div>
-                {errorMessage && <div className="error">{errorMessage}</div>}
+            <form onSubmit={handleClick}>
+              <div className="Row">
+                <input
+                  className="Code"
+                  type="text"
+                  placeholder="+91"
+                  readOnly
+                />
+                <input
+                  className="Input"
+                  type="text"
+                  value={number}
+                  onChange={(e) => handleInputChange(e, 0, e.target.value)}
+                  maxLength={10}
+                  placeholder="Enter Mobile Number"
+                />
               </div>
-
-              <div className="Three">
+              <div className="Row">
+                <input
+                  className="Input2"
+                  type="text"
+                  placeholder="Enter Name"
+                  onChange={(e) => handleInputChangeName(1, e.target.value)}
+                />
+              </div>
+              {<div className="Error"> {errorMessage}</div>}
+              <div className="Row">
                 <label className="TC">
                   By continuing, you agree to our{" "}
-                  <Link className="New2">Terms of use</Link> and{" "}
-                  <Link className="New2">Privacy Policy</Link>
+                  <Link className="Link">Terms of use</Link> and{" "}
+                  <Link className="Link">Privacy Policy</Link>
                 </label>
+              </div>
+              <div className="Row">
                 {loading ? (
                   <div className="Loading">
                     <ScaleLoader
@@ -146,25 +132,19 @@ function SignUp() {
                 ) : (
                   <input type="submit" className="Btn" value="Request Otp" />
                 )}
-
-                <label className="New" onClick={() => clickLink()}>
-                  Already an user? Click here to LogIn
-                </label>
               </div>
             </form>
+            <div className="Row">
+              <Link className="Link" to="/login">
+                Already an user? Click here to LogIn
+              </Link>
+            </div>
           </div>
         </div>
 
-        <div className="SLBoxRight">
-          <div className="RightTop">
-            <img
-              src="../Images/24493638_6941053.svg"
-              height="100%"
-              width="80%"
-              alt="logo"
-            />
-          </div>
-          <div className="RightDown">
+        <div className="RightBox">
+          <div className="RightImage"></div>
+          <div className="RightCloud">
             <img
               src="../Images/cloud-image.png"
               height="100%"

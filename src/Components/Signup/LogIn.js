@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
+import "./ExampleCss.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import "../../Css files/SLForm.css";
+import { useState } from "react";
 import axios from "axios";
 import ScaleLoader from "react-spinners/ScaleLoader";
 
@@ -12,6 +13,10 @@ function LogIn() {
   const [inputValues, setInputValues] = useState(["", ""]);
   const [number, setNumber] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const axiosInstance = axios.create({
+    timeout: 15000, // Set the timeout duration in milliseconds (e.g., 5000ms = 5 seconds)
+  });
 
   const handleInputChange = (e, index, value) => {
     const numericValue = e.target.value.replace(/[^0-9]/g, "");
@@ -27,13 +32,6 @@ function LogIn() {
     newInputValues[index] = value;
     setInputValues(newInputValues);
   }
-  const clickLink = () => {
-    navigate(`/signup`);
-  };
-
-  // const handleClick = () => {
-  //   navigate(`/verify`);
-  // };
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -53,27 +51,35 @@ function LogIn() {
         withCredentials: true,
       });
       console.log(`${apiUrl}/api/v1/user/login`);
-      axios
+      axiosInstance
         .post(`${apiUrl}/api/v1/user/login`, user)
         .then((response) => {
           // Handle the response
           setLoading(false);
           navigate(`/verify?authToken=${response.data.data}`);
         })
+
         .catch((error) => {
-          // Handle the error
-          console.error(error);
-          setLoading(false);
-          setErrorMessage(error.response.data.message);
+          if (error.code === "ECONNABORTED") {
+            // Handle request timeout
+            setLoading(false);
+            setErrorMessage(error.response.data.message);
+            console.log("Request timed out");
+          } else {
+            // Handle other errors
+            console.error(error);
+            setLoading(false);
+            setErrorMessage(error.response.data.message);
+          }
         });
     }
   };
 
   return (
-    <div className="SLPage">
-      <div className="SLBox">
-        <div className="SLBoxLeft">
-          <div className="LeftTop">
+    <div className="FormPage">
+      <div className="FormBox">
+        <div className="LeftBox">
+          <div className="LeftCloud">
             <img
               src="../Images/cloud-image.png"
               height="100%"
@@ -81,44 +87,35 @@ function LogIn() {
               alt="logo"
             />
           </div>
-
-          <div className="LForm">
-            <div className="One">
-              <img
-                src="../Images/coral.png"
-                height="80%"
-                width="90%"
-                alt="logo"
-              />
-            </div>
-            <form onSubmit={handleClick} className="form">
-              <div className="Two">
-                <label>LogIn to your account</label>
-                <div className="Text">
-                  <input
-                    className="Code"
-                    type="text"
-                    placeholder="+91"
-                    readOnly
-                  />
-                  <input
-                    className="Input"
-                    type="text"
-                    maxLength={10}
-                    placeholder="Enter Mobile Number"
-                    onChange={(e) => handleInputChange(e, 0, e.target.value)}
-                    value={number}
-                  />
-                </div>
-                {errorMessage && <div className="error">{errorMessage}</div>}
+          <div className="FormLogo"></div>
+          <div className="FormWrapper">
+            <div className="LFormTitle">LogIn to your account</div>
+            <form onSubmit={handleClick}>
+              <div className="Row">
+                <input
+                  className="Code"
+                  type="text"
+                  placeholder="+91"
+                  readOnly
+                />
+                <input
+                  className="Input"
+                  type="text"
+                  value={number}
+                  onChange={(e) => handleInputChange(e, 0, e.target.value)}
+                  maxLength={10}
+                  placeholder="Enter Mobile Number"
+                />
               </div>
-
-              <div className="Three">
+              {<div className="Error"> {errorMessage}</div>}
+              <div className="Row">
                 <label className="TC">
                   By continuing, you agree to our{" "}
-                  <Link className="New2">Terms of use</Link> and{" "}
-                  <Link className="New2">Privacy Policy</Link>
+                  <Link className="Link">Terms of use</Link> and{" "}
+                  <Link className="Link">Privacy Policy</Link>
                 </label>
+              </div>
+              <div className="Row">
                 {loading ? (
                   <div className="Loading">
                     <ScaleLoader
@@ -131,26 +128,19 @@ function LogIn() {
                 ) : (
                   <input type="submit" className="Btn" value="Request Otp" />
                 )}
-
-                <label className="New" onClick={() => clickLink()}>
-                  New to here? Create an account
-                </label>
               </div>
             </form>
+            <div className="Row">
+              <Link className="Link" to="/signup">
+                New to here? Create an account
+              </Link>
+            </div>
           </div>
         </div>
 
-        <div className="SLBoxRight">
-          <div className="RightTop">
-            <img
-              src="../Images/24493638_6941053.svg"
-              height="100%"
-              width="80%"
-              alt="logo"
-            />
-          </div>
-
-          <div className="RightDown">
+        <div className="RightBox">
+          <div className="RightImage"></div>
+          <div className="RightCloud">
             <img
               src="../Images/cloud-image.png"
               height="100%"

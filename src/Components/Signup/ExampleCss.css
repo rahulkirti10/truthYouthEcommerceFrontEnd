@@ -1,0 +1,262 @@
+.FormPage {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #c9c9c9;
+}
+
+.FormBox {
+  height: 580px;
+  width: 800px;
+  background-color: white;
+  display: flex;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.49);
+}
+
+.LeftBox {
+  height: 580px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.LeftCloud {
+  height: 100px;
+  width: 400px;
+}
+
+.LeftCloud img {
+  transform: rotate(180deg);
+}
+
+.RightBox {
+  height: 580px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.RightCloud {
+  height: 250px;
+  width: 400px;
+}
+
+.RightImage {
+  height: 330px;
+  width: 400px;
+  background-image: url(../../../public/Images/24493638_6941053.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.FormLogo {
+  height: 100px;
+  width: 380px;
+  background-image: url(../../../public/Images/coral.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.FormWrapper {
+  height: 380px;
+  width: 380px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.FormWrapper .BackButton {
+  height: 30px;
+  width: 400px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.FormWrapper .BackButton label {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1b4b66;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 5px;
+  transition: 0.5s;
+}
+
+.FormWrapper .BackButton label:hover {
+  margin-left: 0;
+}
+
+.FormWrapper .SFormTitle {
+  display: flex;
+  align-items: flex-start;
+  font-size: 25px;
+  font-weight: 600;
+  height: 70px;
+  width: 380px;
+  margin-bottom: 10px;
+}
+
+.FormWrapper .LFormTitle {
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+  font-weight: 600;
+  height: 60px;
+  width: 380px;
+  margin-bottom: 10px;
+}
+
+.FormWrapper .OFormTitle {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  font-size: 25px;
+  font-weight: 600;
+  height: 70px;
+  width: 380px;
+  margin-bottom: 10px;
+}
+
+.FormWrapper .OFormTitle label {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.FormWrapper .Row {
+  display: flex;
+  align-items: center;
+  height: 45px;
+  margin-bottom: 10px;
+}
+
+.FormWrapper .Error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  width: 380px;
+  color: red;
+}
+
+.FormWrapper .Row .Loading {
+  height: 45px;
+  width: 380px;
+  border-radius: 5px;
+  background-color: #1b4b66;
+  color: white;
+  transition: 1s;
+  margin: 0;
+}
+.FormWrapper .Row .Code {
+  border: 0;
+  outline: none;
+  border-radius: 5px;
+  height: 45px;
+  width: 50px;
+  background-color: #f1f1f1;
+  cursor: default;
+  padding-left: 10px;
+}
+
+.FormWrapper .Row .Code::placeholder {
+  color: #626262;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.FormWrapper .Row .OCode {
+  border: 0;
+  outline: none;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: text;
+  height: 50px;
+  width: 50px;
+  margin-top: 5px;
+  margin-right: 10px;
+  background-color: #d9d9d9;
+  padding: 0;
+}
+
+.FormWrapper .Row .OCode::placeholder {
+  font-size: 20px;
+  color: #626262;
+  font-weight: 600;
+}
+
+.FormWrapper .Row .Input {
+  border: 0;
+  outline: none;
+  border-radius: 5px;
+  margin-left: 8px;
+  height: 45px;
+  width: 320px;
+  font-size: 20px;
+  background-color: #f1f1f1;
+  padding-left: 10px;
+  padding-bottom: 5px;
+}
+
+.FormWrapper .Row .Input::placeholder {
+  color: #626262;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.FormWrapper .Row .Input2 {
+  border: 0;
+  outline: none;
+  border-radius: 5px;
+  height: 45px;
+  width: 378px;
+  font-size: 20px;
+  background-color: #f1f1f1;
+  padding-left: 10px;
+  padding-bottom: 5px;
+}
+
+.FormWrapper .Row .Input2::placeholder {
+  color: #626262;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.FormWrapper .Row .TC {
+  font-size: 14px;
+}
+
+.Link {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1b4b66;
+  text-decoration: underline;
+}
+
+.FormWrapper .Row .Btn {
+  height: 45px;
+  width: 380px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  border: 0;
+  cursor: pointer;
+  background-color: #1b4b66;
+  color: white;
+  transition: 1s;
+}
+
+.FormWrapper .Row .Btn:hover {
+  background-color: #2b77a2;
+}

@@ -7,6 +7,7 @@ import ProductPage from "./Components/Products/ProductPage";
 import Otp from "./Components/Signup/Otp";
 import SignUp from "./Components/Signup/SignUp";
 import LogIn from "./Components/Signup/LogIn";
+import ExampleSignup from "./Components/Signup/ExampleSignup";
 
 function App() {
   return (
