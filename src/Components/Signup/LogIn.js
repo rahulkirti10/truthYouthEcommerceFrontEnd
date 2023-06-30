@@ -121,8 +121,8 @@ function LogIn() {
                     <ScaleLoader
                       color="#ffffff"
                       loading={loading}
-                      height={40}
-                      width={5}
+                      height={30}
+                      width={3}
                     />
                   </div>
                 ) : (

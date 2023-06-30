@@ -277,221 +277,271 @@
   background-color: #2b77a2;
 }
 
-/* .RightImage {
-  height: 600px;
-  width: 650px;
-  background-image: url(../../../public/Images/24493638_6941053.svg);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
+@media (max-width: 1300px) {
+  .FormBox {
+    height: 550px;
+    width: 850px;
+    background-color: white;
+    display: flex;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5),
+      0 6px 20px 0 rgba(0, 0, 0, 0.49);
+  }
 
-.FormLogo {
-  height: 100px;
-  width: 380px;
-  background-image: url(../../../public/Images/coral.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
+  .LeftBox {
+    height: 550px;
+    width: 425px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
 
-.FormWrapper {
-  height: 380px;
-  width: 380px;
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+  .LeftCloud {
+    height: 100px;
+    width: 425px;
+  }
 
-.FormWrapper .BackButton {
-  height: 30px;
-  width: 400px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
-}
+  .LeftCloud img {
+    transform: rotate(180deg);
+  }
 
-.FormWrapper .BackButton label {
-  font-size: 20px;
-  font-weight: 600;
-  color: #1b4b66;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  margin-left: 5px;
-  transition: 0.5s;
-}
+  .RightBox {
+    height: 550px;
+    width: 425px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
 
-.FormWrapper .BackButton label:hover {
-  margin-left: 0;
-}
+  .RightCloud {
+    height: 250px;
+    width: 425px;
+  }
 
-.FormWrapper .SFormTitle {
-  display: flex;
-  align-items: flex-start;
-  font-size: 25px;
-  font-weight: 600;
-  height: 70px;
-  width: 380px;
-  margin-bottom: 10px;
-}
+  .RightImage {
+    height: 330px;
+    width: 425px;
+    background-image: url(../../../public/Images/24493638_6941053.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 
-.FormWrapper .LFormTitle {
-  display: flex;
-  align-items: center;
-  font-size: 25px;
-  font-weight: 600;
-  height: 60px;
-  width: 380px;
-  margin-bottom: 10px;
-}
+  .FormLogo {
+    height: 70px;
+    width: 400px;
+    background-image: url(../../../public/Images/coral.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 
-.FormWrapper .OFormTitle {
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-  font-size: 25px;
-  font-weight: 600;
-  height: 70px;
-  width: 380px;
-  margin-bottom: 10px;
-}
+  .FormWrapper {
+    height: 380px;
+    width: 400px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-.FormWrapper .OFormTitle label {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
-}
+  .FormWrapper .BackButton {
+    height: 30px;
+    width: 420px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
 
-.FormWrapper .Row {
-  display: flex;
-  align-items: center;
-  height: 45px;
-  margin-bottom: 10px;
-}
+  .FormWrapper .BackButton .Back {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1b4b66;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 10px;
+  }
 
-.FormWrapper .Error {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 20px;
-  width: 380px;
-  color: red;
-}
+  .FormWrapper .SFormTitle {
+    display: flex;
+    align-items: flex-end;
+    font-size: 24px;
+    font-weight: 600;
+    height: 70px;
+    width: 400px;
+    margin-bottom: 10px;
+  }
 
-.FormWrapper .Row .Loading {
-  height: 45px;
-  width: 380px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 5px;
-  background-color: #1b4b66;
-  color: white;
-  transition: 1s;
-  margin: 0;
-}
-.FormWrapper .Row .Code {
-  border: 0;
-  outline: none;
-  border-radius: 5px;
-  height: 45px;
-  width: 50px;
-  background-color: #f1f1f1;
-  cursor: default;
-  padding-left: 10px;
-}
+  .FormWrapper .LFormTitle {
+    display: flex;
+    align-items: flex-end;
+    font-size: 25px;
+    font-weight: 600;
+    height: 60px;
+    width: 400px;
+    margin-bottom: 10px;
+  }
 
-.FormWrapper .Row .Code::placeholder {
-  color: #626262;
-  font-weight: 600;
-  font-size: 15px;
-}
+  .FormWrapper .OFormTitle {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    font-size: 25px;
+    font-weight: 600;
+    height: 70px;
+    width: 400px;
+    margin-bottom: 10px;
+  }
 
-.FormWrapper .Row .OCode {
-  border: 0;
-  outline: none;
-  text-align: center;
-  border-radius: 5px;
-  font-size: 20px;
-  cursor: text;
-  height: 50px;
-  width: 50px;
-  margin-top: 5px;
-  margin-right: 10px;
-  background-color: #d9d9d9;
-  padding: 0;
-}
+  .FormWrapper .OFormTitle label {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    width: 320px;
+  }
 
-.FormWrapper .Row .OCode::placeholder {
-  font-size: 20px;
-  color: #626262;
-  font-weight: 600;
-}
+  .FormWrapper .Row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 400px;
+    margin-bottom: 10px;
+  }
 
-.FormWrapper .Row .Input {
-  border: 0;
-  outline: none;
-  border-radius: 5px;
-  margin-left: 8px;
-  height: 45px;
-  width: 320px;
-  font-size: 20px;
-  background-color: #f1f1f1;
-  padding-left: 10px;
-  padding-bottom: 5px;
-}
+  .FormWrapper .ORow {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 50px;
+    width: 400px;
+    margin-bottom: 10px;
+  }
 
-.FormWrapper .Row .Input::placeholder {
-  color: #626262;
-  font-weight: 600;
-  font-size: 15px;
-}
+  .FormWrapper .Error {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 20px;
+    width: 400px;
+    font-size: 13px;
+    color: red;
+    font-weight: 600;
+  }
 
-.FormWrapper .Row .Input2 {
-  border: 0;
-  outline: none;
-  border-radius: 5px;
-  height: 45px;
-  width: 378px;
-  font-size: 20px;
-  background-color: #f1f1f1;
-  padding-left: 10px;
-  padding-bottom: 5px;
-}
+  .FormWrapper .Row .Loading {
+    height: 40px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background-color: #1b4b66;
+    color: white;
+    transition: 1s;
+    margin: 0;
+  }
+  .FormWrapper .Row .Code {
+    border: 0;
+    outline: none;
+    border-radius: 5px;
+    height: 39px;
+    width: 52px;
+    background-color: #f1f1f1;
+    cursor: default;
+    padding-left: 10px;
+    padding-top: 0;
+  }
 
-.FormWrapper .Row .Input2::placeholder {
-  color: #626262;
-  font-weight: 600;
-  font-size: 15px;
-}
+  .FormWrapper .Row .Code::placeholder {
+    color: #626262;
+    font-weight: 600;
+    font-size: 13px;
+  }
 
-.FormWrapper .Row .TC {
-  font-size: 14px;
-}
+  .FormWrapper .ORow .OCode {
+    border: 0;
+    outline: none;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: text;
+    height: 49px;
+    width: 49px;
+    margin-right: 10px;
+    background-color: #d9d9d9;
+    padding: 0;
+  }
 
-.Link {
-  font-size: 15px;
-  font-weight: 600;
-  color: #1b4b66;
-  text-decoration: underline;
-}
+  .FormWrapper .ORow .OCode::placeholder {
+    font-size: 20px;
+    color: #626262;
+    font-weight: 600;
+  }
 
-.FormWrapper .Row .Btn {
-  height: 45px;
-  width: 380px;
-  border-radius: 5px;
-  font-size: 16px;
-  font-weight: 600;
-  border: 0;
-  cursor: pointer;
-  background-color: #1b4b66;
-  color: white;
-  transition: 1s;
-}
+  .FormWrapper .Row .Input {
+    border: 0;
+    outline: none;
+    border-radius: 5px;
+    margin-left: 8px;
+    height: 39px;
+    width: 380px;
+    font-size: 13px;
+    background-color: #f1f1f1;
+    padding-left: 10px;
+    font-weight: 600;
+  }
 
-.FormWrapper .Row .Btn:hover {
-  background-color: #2b77a2;
-} */
+  .FormWrapper .Row .Input::placeholder {
+    color: #626262;
+    font-weight: 600;
+    font-size: 13px;
+  }
+
+  .FormWrapper .Row .Input2 {
+    border: 0;
+    outline: none;
+    border-radius: 5px;
+    height: 39px;
+    width: 400px;
+    font-size: 13px;
+    background-color: #f1f1f1;
+    padding-left: 10px;
+  }
+
+  .FormWrapper .Row .Input2::placeholder {
+    color: #626262;
+    font-weight: 600;
+    font-size: 13px;
+  }
+
+  .FormWrapper .Row .TC {
+    font-size: 12px;
+  }
+
+  .Link {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1b4b66;
+    text-decoration: underline;
+  }
+
+  .FormWrapper .Row .Btn {
+    height: 40px;
+    width: 400px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    border: 0;
+    cursor: pointer;
+    background-color: #1b4b66;
+    color: white;
+    transition: 1s;
+  }
+
+  .FormWrapper .Row .Btn:hover {
+    background-color: #2b77a2;
+  }
+}
