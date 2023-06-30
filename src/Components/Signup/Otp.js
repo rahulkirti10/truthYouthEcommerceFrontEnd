@@ -129,8 +129,8 @@ function Otp(props) {
                 {" "}
                 <ChevronLeftIcon
                   sx={{
-                    marginTop: "5px",
-                    fontSize: 40,
+                    marginTop: "2px",
+                    fontSize: 30,
                   }}
                 />{" "}
                 Back
@@ -173,8 +173,8 @@ function Otp(props) {
                     <ScaleLoader
                       color="#ffffff"
                       loading={loading}
-                      height={25}
-                      width={3}
+                      height={40}
+                      width={5}
                     />
                   </div>
                 ) : (
