@@ -125,8 +125,8 @@ function SignUp() {
                     <ScaleLoader
                       color="#ffffff"
                       loading={loading}
-                      height={25}
-                      width={3}
+                      height={40}
+                      width={5}
                     />
                   </div>
                 ) : (

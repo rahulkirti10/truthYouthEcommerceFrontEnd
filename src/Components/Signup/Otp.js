@@ -125,20 +125,26 @@ function Otp(props) {
           <div className="FormLogo"></div>
           <div className="FormWrapper">
             <div className="BackButton">
-              <label>
+              <label className="Back">
                 {" "}
-                <ChevronLeftIcon fontSize="large" /> Back
+                <ChevronLeftIcon
+                  sx={{
+                    marginTop: "5px",
+                    fontSize: 40,
+                  }}
+                />{" "}
+                Back
               </label>
             </div>
             <div className="OFormTitle">
               Recieved a Verification Code?
               <label>
-                We've sent an OTP on your registered Mobile No. 8010xxxxxx.
+                We've sent an OTP on your registered Mobile Number 8010xxxxxx.
                 Enter the 6 digit code
               </label>
             </div>
             <form onSubmit={handleClick}>
-              <div className="Row">
+              <div className="ORow">
                 {inputRefs.map((ref, index) => (
                   <input
                     className="OCode"
