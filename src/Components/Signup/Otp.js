@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import ScaleLoader from "react-spinners/ScaleLoader";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 
 const inputRefs = Array.from({ length: 6 }, () => React.createRef());
 let isFirstBackspaceClick = true;
@@ -127,7 +127,7 @@ function Otp(props) {
             <div className="BackButton">
               <label className="Back">
                 {" "}
-                <ChevronLeftIcon
+                <ArrowLeftIcon
                   sx={{
                     marginTop: "2px",
                     fontSize: 30,
@@ -173,17 +173,17 @@ function Otp(props) {
                     <ScaleLoader
                       color="#ffffff"
                       loading={loading}
-                      height={30}
+                      height={25}
                       width={3}
                     />
                   </div>
                 ) : (
-                  <input type="submit" className="Btn" value="Request Otp" />
+                  <input type="submit" className="Btn" value="Verify Otp" />
                 )}
               </div>
             </form>
             <div className="Row">
-              <Link className="Link" to="/signup">
+              <Link className="Link2" to="/signup">
                 New to here? Create an account
               </Link>
             </div>

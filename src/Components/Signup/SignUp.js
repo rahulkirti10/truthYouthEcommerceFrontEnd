@@ -125,7 +125,7 @@ function SignUp() {
                     <ScaleLoader
                       color="#ffffff"
                       loading={loading}
-                      height={30}
+                      height={25}
                       width={3}
                     />
                   </div>
@@ -135,7 +135,7 @@ function SignUp() {
               </div>
             </form>
             <div className="Row">
-              <Link className="Link" to="/login">
+              <Link className="Link2" to="/login">
                 Already an user? Click here to LogIn
               </Link>
             </div>
