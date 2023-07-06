@@ -7,9 +7,6 @@ import Badge from "@mui/material/Badge";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
-import Menu from "@mui/material/Menu";
-import Paper from "@mui/material/Paper";
-import Divider from "@mui/material/Divider";
 import HeaderMenu from "./HeaderMenu";
 // import MenuSharpIcon from '@mui/icons-material/MenuSharp';
 // import Drawer from '@mui/material/Drawer';
@@ -28,20 +25,12 @@ function AppHeader() {
     },
   }));
 
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
-  const clickMenu = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
   const clickLink = (option) => {
     if (option === "SignUp") {
       navigate(`/signup`);
     } else {
       navigate(`/login`);
     }
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
   };
 
   // const [state, setState] = useState({
@@ -73,9 +62,7 @@ function AppHeader() {
     <div className="Head">
       <div className="BigHead1">
         <div className="HeadLogo"></div>
-        <div className="HeadNav">
-          <HeaderMenu />
-        </div>
+        <HeaderMenu />
       </div>
 
       <div className="BigHead2">
@@ -92,52 +79,35 @@ function AppHeader() {
           />
         </div>
         <div className="HeadIcons">
-          <Link className="link" onClick={clickMenu}>
-            <PersonOutlinedIcon />
-          </Link>
-          <Menu
-            id="basic-menu"
-            anchorEl={anchorEl}
-            open={open}
-            onClose={handleClose}
-            MenuListProps={{
-              "aria-labelledby": "basic-button",
-            }}
-          >
-            <Paper elevation={0} sx={{ width: 250 }}>
-              <div className="MenuHeading">
-                <label className="Welcome">Welcome</label>
-                <label className="Welcome2">
-                  To access account and manage orders
+          <div className="HoverIcon">
+            <label className="link">
+              <PersonOutlinedIcon />
+            </label>
+
+            <div className="SubMenu">
+              <div className="SubMenuHeading">
+                <label className="One">Welcome</label>
+                <label>To acccess accounts & manage orders</label>
+                <label className="Login_Button" onClick={clickLink}>
+                  Login/Signup
                 </label>
               </div>
-
-              <label
-                className="Login_Button"
-                onClick={() => clickLink("SignUp")}
-              >
-                LOGIN/SIGNUP
-              </label>
-
-              <Divider />
-              <div className="MenuList">
-                <label onClick={() => clickLink("SignUp")}>Orders</label>
-
-                <label onClick={() => clickLink("SignUp")}>Wishlist</label>
-
-                <label onClick={() => clickLink("SignUp")}>ContactUs</label>
+              <div className="SubMenuBox">
+                <label>Orders</label>
+                <label>Wishlist</label>
+                <label>Contact Us</label>
               </div>
-            </Paper>
-          </Menu>
+            </div>
+          </div>
 
-          <Link className="link">
+          <Link className="link2">
             <FavoriteBorderOutlinedIcon />
           </Link>
 
           <Link className="link2">
-            <StyledBadge variant="dot" color="primary">
-              <ShoppingBagOutlinedIcon />
-            </StyledBadge>
+            {/* <StyledBadge variant="dot" color="primary"> */}
+            <ShoppingBagOutlinedIcon />
+            {/* </StyledBadge> */}
           </Link>
         </div>
       </div>
