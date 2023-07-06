@@ -7,6 +7,7 @@ import { useLocation } from "react-router-dom";
 import axios from "axios";
 import ScaleLoader from "react-spinners/ScaleLoader";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
+import TermsPolicy from "./TermsPolicy";
 
 const inputRefs = Array.from({ length: 6 }, () => React.createRef());
 let isFirstBackspaceClick = true;
@@ -18,10 +19,16 @@ function Otp(props) {
   const location = useLocation(props);
   const searchParams = new URLSearchParams(location.search);
   const number = searchParams.get("authToken");
+  const { user } = location.state;
+
+  const mobileNo = user.mobileNo;
 
   const navigate = useNavigate();
-
   const [values, setValues] = useState(["", "", "", "", "", ""]);
+
+  const handleGoBack = () => {
+    window.history.back(); // Redirects to the last page opened
+  };
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -125,7 +132,7 @@ function Otp(props) {
           <div className="FormLogo"></div>
           <div className="FormWrapper">
             <div className="BackButton">
-              <label className="Back">
+              <label className="Back" onClick={handleGoBack}>
                 {" "}
                 <ArrowLeftIcon
                   sx={{
@@ -137,10 +144,10 @@ function Otp(props) {
               </label>
             </div>
             <div className="OFormTitle">
-              Recieved a Verification Code?
+              Recieved a verification code?
               <label>
-                We've sent an OTP on your registered Mobile Number 8010xxxxxx.
-                Enter the 6 digit code
+                We've sent an OTP on your registered mobile number {mobileNo}
+                {""}. Enter the 6 digit code
               </label>
             </div>
             <form onSubmit={handleClick}>
@@ -162,9 +169,7 @@ function Otp(props) {
               {<div className="Error"> {errorMessage}</div>}
               <div className="Row">
                 <label className="TC">
-                  By continuing, you agree to our{" "}
-                  <Link className="Link">Terms of use</Link> and{" "}
-                  <Link className="Link">Privacy Policy</Link>
+                  <TermsPolicy />
                 </label>
               </div>
               <div className="Row">

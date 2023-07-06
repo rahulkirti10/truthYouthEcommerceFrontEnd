@@ -1,5 +1,5 @@
 import React from "react";
-import "../Css files/Header.css";
+import "./Header.css";
 import { styled } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -8,7 +8,9 @@ import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlin
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
+import Paper from "@mui/material/Paper";
+import Divider from "@mui/material/Divider";
+import HeaderMenu from "./HeaderMenu";
 // import MenuSharpIcon from '@mui/icons-material/MenuSharp';
 // import Drawer from '@mui/material/Drawer';
 
@@ -70,30 +72,9 @@ function AppHeader() {
   return (
     <div className="Head">
       <div className="BigHead1">
-        <div className="HeadLogo">
-          <img
-            src="../Images/coral.png"
-            alt="logo"
-            height="100%"
-            width="100%"
-          />
-        </div>
+        <div className="HeadLogo"></div>
         <div className="HeadNav">
-          <label className="link" onClick={() => handleClick("Handbags")}>
-            Handbags
-          </label>
-          <label className="link" onClick={() => handleClick("Watches")}>
-            Watches
-          </label>
-          <label className="link" onClick={() => handleClick("Skincare")}>
-            Skincare
-          </label>
-          <label className="link" onClick={() => handleClick("Jeweller")}>
-            Jewellery
-          </label>
-          <label className="link" onClick={() => handleClick("Apparels")}>
-            Apparels
-          </label>
+          <HeaderMenu />
         </div>
       </div>
 
@@ -111,10 +92,6 @@ function AppHeader() {
           />
         </div>
         <div className="HeadIcons">
-          <Link className="link">
-            <FavoriteBorderOutlinedIcon />
-          </Link>
-
           <Link className="link" onClick={clickMenu}>
             <PersonOutlinedIcon />
           </Link>
@@ -127,9 +104,35 @@ function AppHeader() {
               "aria-labelledby": "basic-button",
             }}
           >
-            <MenuItem onClick={() => clickLink("SignUp")}>SignUp</MenuItem>
-            <MenuItem onClick={() => clickLink("LogIn")}>LogIn</MenuItem>
+            <Paper elevation={0} sx={{ width: 250 }}>
+              <div className="MenuHeading">
+                <label className="Welcome">Welcome</label>
+                <label className="Welcome2">
+                  To access account and manage orders
+                </label>
+              </div>
+
+              <label
+                className="Login_Button"
+                onClick={() => clickLink("SignUp")}
+              >
+                LOGIN/SIGNUP
+              </label>
+
+              <Divider />
+              <div className="MenuList">
+                <label onClick={() => clickLink("SignUp")}>Orders</label>
+
+                <label onClick={() => clickLink("SignUp")}>Wishlist</label>
+
+                <label onClick={() => clickLink("SignUp")}>ContactUs</label>
+              </div>
+            </Paper>
           </Menu>
+
+          <Link className="link">
+            <FavoriteBorderOutlinedIcon />
+          </Link>
 
           <Link className="link2">
             <StyledBadge variant="dot" color="primary">

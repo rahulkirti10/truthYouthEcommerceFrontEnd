@@ -1,13 +1,13 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import AppHeader from "./Components/AppHeader";
+import AppHeader from "./Components/Header/AppHeader";
 import HomePage from "./Components/Home/HomePage";
 import AppFooter from "./Components/AppFooter";
 import ProductPage from "./Components/Products/ProductPage";
 import Otp from "./Components/Signup/Otp";
 import SignUp from "./Components/Signup/SignUp";
 import LogIn from "./Components/Signup/LogIn";
-import ExampleSignup from "./Components/Signup/ExampleSignup";
+import HeaderMenu from "./Components/Header/HeaderMenu";
 
 function App() {
   return (
@@ -54,7 +54,7 @@ function App() {
             path="/verify"
             element={
               <>
-                <Otp />
+                <HeaderMenu />
               </>
             }
           />

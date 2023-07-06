@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import ScaleLoader from "react-spinners/ScaleLoader";
+import TermsPolicy from "./TermsPolicy";
 
 function SignUp() {
   const apiUrl = process.env.REACT_APP_API_URL;
@@ -58,7 +59,9 @@ function SignUp() {
         .then((response) => {
           // Handle the response
           setLoading(false);
-          navigate(`/verify?authToken=${response.data.data}`);
+          navigate(`/verify?authToken=${response.data.data}`, {
+            state: { user },
+          });
         })
         .catch((error) => {
           // Handle the error
@@ -114,9 +117,7 @@ function SignUp() {
               {<div className="Error"> {errorMessage}</div>}
               <div className="Row">
                 <label className="TC">
-                  By continuing, you agree to our{" "}
-                  <Link className="Link">Terms of use</Link> and{" "}
-                  <Link className="Link">Privacy Policy</Link>
+                  <TermsPolicy />
                 </label>
               </div>
               <div className="Row">

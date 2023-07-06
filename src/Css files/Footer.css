@@ -1,6 +1,6 @@
 .Foot {
   width: 100vw;
-  height: 60vh;
+  height: 400px;
   display: flex;
   justify-content: space-around;
   align-items: flex-start;

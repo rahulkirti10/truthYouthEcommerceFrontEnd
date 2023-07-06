@@ -254,7 +254,6 @@
 .FormWrapper .Row .TC {
   font-size: 16px;
 }
-
 .Link {
   font-size: 16.5px;
   font-weight: 600;
@@ -265,7 +264,7 @@
   font-size: 16px;
   font-weight: 600;
   color: #1b4b66;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .FormWrapper .Row .Btn {
@@ -527,21 +526,21 @@
   }
 
   .FormWrapper .Row .TC {
-    font-size: 12px;
+    font-size: 12.3px;
   }
 
   .Link {
-    font-size: 13.5px;
+    font-size: 13px;
     font-weight: 600;
     color: #1b4b66;
     text-decoration: underline;
   }
 
   .Link2 {
-    font-size: 12px;
+    font-size: 12.3px;
     font-weight: 600;
     color: #1b4b66;
-    text-decoration: underline;
+    text-decoration: none;
   }
 
   .FormWrapper .Row .Btn {
