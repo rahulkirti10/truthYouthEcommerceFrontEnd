@@ -1,4 +1,3 @@
-import Divider from "@mui/material/Divider";
 import React from "react";
 import "./HeaderMenu.css";
 
@@ -68,7 +67,7 @@ function HeaderMenu() {
       <div className="HoverMenu">
         <label className="link">You & Me</label>
 
-        <div className="SubMenu">
+        <div className="SubMenu2">
           <label className="SubMenuHeading">You & Me</label>
           <div className="SubMenuBox">
             <label>Better Half</label>

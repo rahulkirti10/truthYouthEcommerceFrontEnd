@@ -37,10 +37,10 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 532px;
-  margin-left: 400px;
-  width: 600px;
-  height: 450px;
+  margin-top: 483px;
+  margin-left: 300px;
+  width: 400px;
+  height: 400px;
   font-size: 16px;
   background-color: #ffffff;
 }
@@ -49,7 +49,6 @@
   display: flex;
   border: none;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  border-radius: 5px;
   z-index: 500;
 }
 
@@ -59,7 +58,7 @@
   align-items: flex-start;
   flex-direction: column;
   flex-wrap: wrap;
-  height: 350px;
+  height: 330px;
   width: 90%;
 }
 
@@ -69,19 +68,73 @@
   cursor: pointer;
   height: 40px;
   width: 48%;
-  transition: 0.5s;
   padding-left: 5px;
 }
 .SubMenu .SubMenuBox label:hover {
-  background-color: rgb(235, 234, 234);
+  font-weight: 600;
+  color: #1b4b66;
 }
 .SubMenu .SubMenuHeading {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   height: 40px;
+  font-size: 18px;
   width: 88%;
+  font-weight: 700;
+  color: #1b4b66;
+}
+
+.SubMenu2 {
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 383px;
+  margin-left: 100px;
+  width: 200px;
+  height: 300px;
+  font-size: 16px;
+  background-color: #ffffff;
+}
+
+.HoverMenu:hover .SubMenu2 {
+  display: flex;
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  z-index: 500;
+}
+
+.SubMenu2 .SubMenuBox {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 230px;
+  width: 90%;
+}
+
+.SubMenu2 .SubMenuBox label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  height: 40px;
+  padding-left: 5px;
+}
+.SubMenu2 .SubMenuBox label:hover {
   font-weight: 600;
   color: #1b4b66;
-  border-bottom: 1px solid #1b4b66;
+}
+.SubMenu2 .SubMenuHeading {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: 18px;
+  height: 40px;
+  width: 88%;
+  font-weight: 700;
+  color: #1b4b66;
 }
