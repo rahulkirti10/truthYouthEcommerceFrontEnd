@@ -1,29 +1,28 @@
 import React from "react";
 import "./Header.css";
-import { styled } from "@mui/material/styles";
+import "./HeaderMenu.css";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import Badge from "@mui/material/Badge";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
-import HeaderMenu from "./HeaderMenu";
 // import MenuSharpIcon from '@mui/icons-material/MenuSharp';
 // import Drawer from '@mui/material/Drawer';
+// import Badge from "@mui/material/Badge";
+// import { styled } from "@mui/material/styles";
 
 function AppHeader() {
   const navigate = useNavigate();
-
   const handleClick = (category) => {
     navigate(`/products?category=${category}`);
   };
 
-  const StyledBadge = styled(Badge)(({ theme }) => ({
-    "& .MuiBadge-badge": {
-      right: 4,
-      top: 6,
-    },
-  }));
+  // const StyledBadge = styled(Badge)(({ theme }) => ({
+  //   "& .MuiBadge-badge": {
+  //     right: 4,
+  //     top: 6,
+  //   },
+  // }));
 
   const clickLink = (option) => {
     if (option === "SignUp") {
@@ -62,7 +61,105 @@ function AppHeader() {
     <div className="Head">
       <div className="BigHead1">
         <div className="HeadLogo"></div>
-        <HeaderMenu />
+        <div className="HeadNav">
+          <div className="HoverMenu">
+            <label className="link">Men</label>
+
+            <div className="SubMenu">
+              <label className="SubMenuHeading">Men</label>
+              <div className="SubMenuBox">
+                <label onClick={() => handleClick("Brocode")}>Brocode</label>
+
+                <label onClick={() => handleClick("Full Sleeves Tshirts")}>
+                  Full Sleeves Tshirts
+                </label>
+
+                <label onClick={() => handleClick("Half Sleeves Tshirts")}>
+                  Half Sleeves Tshirts
+                </label>
+                <label onClick={() => handleClick("Oversized")}>
+                  Oversized{" "}
+                </label>
+
+                <label onClick={() => handleClick("Polo Collar")}>
+                  Polo Collar
+                </label>
+
+                <label onClick={() => handleClick("V Neck")}>V neck</label>
+                <label onClick={() => handleClick("Round Neck")}>
+                  Round Neck
+                </label>
+
+                <label onClick={() => handleClick("Plain Tshirts")}>
+                  Plain Tshirts
+                </label>
+
+                <label>Printed</label>
+                <label>3/4th</label>
+
+                <label>Tshirt combos</label>
+
+                <label>Plain shorts</label>
+                <label>Printed shorts</label>
+              </div>
+            </div>
+          </div>
+          <div className="HoverMenu">
+            <label className="link">Women</label>
+
+            <div className="SubMenu">
+              <label className="SubMenuHeading">Women</label>
+              <div className="SubMenuBox">
+                <label>Besties & Bros</label>
+                <label>Boyfriend</label>
+                <label onClick={() => handleClick("Full Sleeves Tshirts")}>
+                  Full Sleeves Tshirts
+                </label>
+
+                <label onClick={() => handleClick("Half Sleeves Tshirts")}>
+                  Half Sleeves Tshirts
+                </label>
+                <label onClick={() => handleClick("Oversized")}>
+                  Oversized{" "}
+                </label>
+
+                <label onClick={() => handleClick("Polo Collar")}>
+                  Polo Collar
+                </label>
+
+                <label onClick={() => handleClick("V Neck")}>V neck</label>
+                <label onClick={() => handleClick("Round Neck")}>
+                  Round Neck
+                </label>
+
+                <label onClick={() => handleClick("Plain Tshirts")}>
+                  Plain Tshirts
+                </label>
+                <label>Printed</label>
+                <label>3/4th</label>
+
+                <label>Tshirt combos</label>
+
+                <label>Plain shorts</label>
+                <label>Printed shorts</label>
+              </div>
+            </div>
+          </div>
+          <div className="HoverMenu">
+            <label className="link">You & Me</label>
+
+            <div className="SubMenu2">
+              <label className="SubMenuHeading">You & Me</label>
+              <div className="SubMenuBox">
+                <label>Better Half</label>
+                <label>Couple Tshirt</label>
+                <label>Soulmates</label>
+
+                <label>Forever Together</label>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="BigHead2">

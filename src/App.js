@@ -7,7 +7,6 @@ import ProductPage from "./Components/Products/ProductPage";
 import Otp from "./Components/Signup/Otp";
 import SignUp from "./Components/Signup/SignUp";
 import LogIn from "./Components/Signup/LogIn";
-import HeaderMenu from "./Components/Header/HeaderMenu";
 
 function App() {
   return (
@@ -54,7 +53,7 @@ function App() {
             path="/verify"
             element={
               <>
-                <HeaderMenu />
+                <Otp />
               </>
             }
           />
