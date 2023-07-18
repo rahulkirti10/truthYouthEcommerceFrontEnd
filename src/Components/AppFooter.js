@@ -101,13 +101,7 @@ function AppFooter() {
               <FacebookIcon fontSize="large" />{" "}
             </Link>
             <Link className="link" to="/">
-              <TwitterIcon fontSize="large" />
-            </Link>
-            <Link className="link" to="/">
               <InstagramIcon fontSize="large" />
-            </Link>
-            <Link className="link" to="/">
-              <YouTubeIcon fontSize="large" />
             </Link>
           </div>
           <div className="FooterRightDown">

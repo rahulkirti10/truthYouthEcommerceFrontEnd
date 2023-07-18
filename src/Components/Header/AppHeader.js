@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
+import ReceiptLongOutlinedIcon from "@mui/icons-material/ReceiptLongOutlined";
+import CallOutlinedIcon from "@mui/icons-material/CallOutlined";
 // import MenuSharpIcon from '@mui/icons-material/MenuSharp';
 // import Drawer from '@mui/material/Drawer';
 // import Badge from "@mui/material/Badge";
@@ -190,9 +192,18 @@ function AppHeader() {
                 </label>
               </div>
               <div className="SubMenuBox">
-                <label>Orders</label>
-                <label>Wishlist</label>
-                <label>Contact Us</label>
+                <label>
+                  <ReceiptLongOutlinedIcon sx={{ marginRight: "5px" }} />
+                  Orders
+                </label>
+                <label>
+                  <FavoriteBorderOutlinedIcon sx={{ marginRight: "5px" }} />
+                  Wishlist
+                </label>
+                <label>
+                  <CallOutlinedIcon sx={{ marginRight: "5px" }} />
+                  Contact Us
+                </label>
               </div>
             </div>
           </div>

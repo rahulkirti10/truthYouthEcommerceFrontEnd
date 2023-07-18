@@ -7,6 +7,7 @@ import ProductPage from "./Components/Products/ProductPage";
 import Otp from "./Components/Signup/Otp";
 import SignUp from "./Components/Signup/SignUp";
 import LogIn from "./Components/Signup/LogIn";
+import ProductDetails from "./Components/Products/ProductDetails";
 
 function App() {
   return (
@@ -29,6 +30,16 @@ function App() {
               <>
                 <AppHeader />
                 <ProductPage />
+                <AppFooter />
+              </>
+            }
+          />
+          <Route
+            path="/productdet"
+            element={
+              <>
+                <AppHeader />
+                <ProductDetails />
                 <AppFooter />
               </>
             }
