@@ -212,11 +212,20 @@ function AppHeader() {
             <FavoriteBorderOutlinedIcon />
           </Link>
 
-          <Link className="link2">
-            {/* <StyledBadge variant="dot" color="primary"> */}
-            <ShoppingBagOutlinedIcon />
-            {/* </StyledBadge> */}
-          </Link>
+          <div className="HoverIcon">
+            <label className="link2">
+              {/* <StyledBadge variant="dot" color="primary"> */}
+              <ShoppingBagOutlinedIcon />
+              {/* </StyledBadge> */}
+            </label>
+
+            <div className="SubMenu">
+              <div className="SubMenuHeading">
+                <label className="One">Welcome</label>
+                <label>Your Cart is Empty</label>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
