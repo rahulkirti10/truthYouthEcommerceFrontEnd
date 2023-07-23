@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Header.css";
 import "./HeaderMenu.css";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
@@ -8,12 +9,43 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import ReceiptLongOutlinedIcon from "@mui/icons-material/ReceiptLongOutlined";
 import CallOutlinedIcon from "@mui/icons-material/CallOutlined";
+import HeaderSearch from "./HeaderSearch";
 // import MenuSharpIcon from '@mui/icons-material/MenuSharp';
 // import Drawer from '@mui/material/Drawer';
 // import Badge from "@mui/material/Badge";
 // import { styled } from "@mui/material/styles";
 
 function AppHeader() {
+  const apiUrl = process.env.REACT_APP_API_URL;
+  const [textSearch, setTextSearch] = useState("");
+  const [menuVisible, setMenuVisible] = useState(false);
+  const [keyword, setKeyword] = useState("");
+
+  const handleSearchBar = (e) => {
+    e.preventDefault();
+
+    console.log(keyword);
+
+    setKeyword(e.target.value);
+    if (keyword !== "") {
+      axios
+        .get(`${apiUrl}/api/v1/product/homeSearch?keyword=${keyword}`)
+        .then((response) => {
+          // Handle the response
+
+          setMenuVisible(true);
+          setTextSearch("");
+
+          console.log(response.data.data);
+          setTextSearch(response.data.data);
+        })
+        .catch((error) => {
+          // Handle the error
+          console.log(error);
+        });
+    }
+  };
+
   const navigate = useNavigate();
   const handleClick = (category) => {
     navigate(`/products?category=${category}`);
@@ -166,16 +198,24 @@ function AppHeader() {
 
       <div className="BigHead2">
         <div className="HeadSearch">
-          <img
-            className="SearchIcon"
-            src="../Images/search-icon.svg"
-            alt="searchicon"
-          />
-          <input
-            type="text"
-            className="Search"
-            placeholder="Search for Products or Brands......"
-          />
+          <div className="HeadSearch1">
+            <img
+              className="SearchIcon"
+              src="../Images/search-icon.svg"
+              alt="searchicon"
+            />
+            <input
+              type="text"
+              className="Search"
+              placeholder="Search for Products or Brands......"
+              onChange={(e) => handleSearchBar(e)}
+            />
+          </div>
+          <div className="SeachSuggestions">
+            <div className="SeachSuggestions1">
+              {menuVisible ? <HeaderSearch data={textSearch} /> : null}
+            </div>
+          </div>
         </div>
         <div className="HeadIcons">
           <div className="HoverIcon">

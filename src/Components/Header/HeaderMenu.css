@@ -138,3 +138,16 @@
   font-weight: 700;
   color: #1b4b66;
 }
+
+.SearchSugMenu {
+  width: 395px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: white;
+}
+
+.SearchSugMenu .Res {
+  margin: 5px;
+}

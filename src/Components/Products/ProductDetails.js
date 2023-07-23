@@ -52,7 +52,10 @@ function ProductDetails() {
   return (
     <>
       <div className="DetailsBox">
-        <div className="DetImage"></div>
+        <div className="DetImage">
+          <div className="Image"></div>
+          <div className="Option"></div>
+        </div>
         <div className="Details">
           <div className="DetailsTitle">
             <label className="Title">TITLE</label>

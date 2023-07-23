@@ -8,7 +8,6 @@ import Otp from "./Components/Signup/Otp";
 import SignUp from "./Components/Signup/SignUp";
 import LogIn from "./Components/Signup/LogIn";
 import ProductDetails from "./Components/Products/ProductDetails";
-
 function App() {
   return (
     <>
