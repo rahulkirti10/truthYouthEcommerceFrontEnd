@@ -22,25 +22,21 @@ function AppHeader() {
   const [keyword, setKeyword] = useState("");
 
   const handleSearchBar = (e) => {
-    e.preventDefault();
-
-    console.log(keyword);
-
-    setKeyword(e.target.value);
-    if (keyword !== "") {
+    const newKeyword = e.target.value;
+    setKeyword(newKeyword);
+    setTextSearch([]);
+    if(newKeyword.trim() === ""){
+      setMenuVisible(false);
+    }
+    else{
       axios
-        .get(`${apiUrl}/api/v1/product/homeSearch?keyword=${keyword}`)
+        .get(`${apiUrl}/api/v1/product/homeSearch?keyword=${newKeyword}`)
         .then((response) => {
-          // Handle the response
-
           setMenuVisible(true);
-          setTextSearch("");
-
-          console.log(response.data.data);
-          setTextSearch(response.data.data);
+          console.log(response.data);
+          setTextSearch(response.data);
         })
         .catch((error) => {
-          // Handle the error
           console.log(error);
         });
     }
@@ -208,6 +204,7 @@ function AppHeader() {
               type="text"
               className="Search"
               placeholder="Search for Products or Brands......"
+              value={keyword}
               onChange={(e) => handleSearchBar(e)}
             />
           </div>
