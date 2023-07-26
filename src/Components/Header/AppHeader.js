@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./Header.css";
 import "./HeaderMenu.css";
 import axios from "axios";
@@ -20,6 +20,43 @@ function AppHeader() {
   const [textSearch, setTextSearch] = useState("");
   const [menuVisible, setMenuVisible] = useState(false);
   const [keyword, setKeyword] = useState("");
+  const [profileVisible, setProfileVisible] = useState(false);
+  const[profile, setProfile] = useState("");
+  const[mobileNo, setMobileNo] = useState("");
+  const divRef = useRef();
+
+
+  useEffect(() => {
+
+    axios.get(`${apiUrl}/api/v1/user/getProfile`, {withCredentials: true})
+    .then((response) => {
+      const name = response.data.data.fullName.toString().substring(0,1).toUpperCase() + response.data.data.fullName.toString().substring(1,  response.data.data.fullName.toString().length);
+      console.log(name)
+      setProfile(name)
+      setMobileNo(response.data.data)
+      setProfileVisible(true)
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+    
+
+      const handleOutsideClick = (event) => {
+        if (divRef.current && !divRef.current.contains(event.target)) {
+          // Clicked outside the search box, hide the search suggestions
+          setMenuVisible(false);
+        }
+      };
+  
+      // Attach the event listener to the document
+      document.addEventListener('mousedown', handleOutsideClick);
+  
+      // Clean up the event listener when the component is unmounted
+      return () => {
+        document.removeEventListener('mousedown', handleOutsideClick);
+      };
+    
+  }, []);
 
   const handleSearchBar = (e) => {
     const newKeyword = e.target.value;
@@ -209,7 +246,7 @@ function AppHeader() {
             />
           </div>
           <div className="SeachSuggestions">
-            <div className="SeachSuggestions1">
+            <div className="SeachSuggestions1" ref={divRef}>
               {menuVisible ? <HeaderSearch data={textSearch} /> : null}
             </div>
           </div>
@@ -221,6 +258,7 @@ function AppHeader() {
             </label>
 
             <div className="SubMenu">
+              {!profileVisible  ?(
               <div className="SubMenuHeading">
                 <label className="One">Welcome</label>
                 <label>To acccess accounts & manage orders</label>
@@ -228,6 +266,12 @@ function AppHeader() {
                   Login/Signup
                 </label>
               </div>
+              ) :
+              <div className="SubMenuHeading">
+              <label className="One">Welcome {profile}</label>
+              <label>{mobileNo.mobileNo}</label>
+              
+            </div>}
               <div className="SubMenuBox">
                 <label>
                   <ReceiptLongOutlinedIcon sx={{ marginRight: "5px" }} />

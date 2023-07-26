@@ -2,7 +2,7 @@ import React from "react";
 import "./ExampleCss.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import ScaleLoader from "react-spinners/ScaleLoader";
 import TermsPolicy from "./TermsPolicy";
@@ -14,6 +14,16 @@ function LogIn() {
   const [inputValues, setInputValues] = useState(["", ""]);
   const [number, setNumber] = useState("");
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    axios.get(`${apiUrl}/api/v1/user/getProfile`, {withCredentials: true})
+    .then((response) => {
+     navigate("/")
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }, []);
 
   const axiosInstance = axios.create({
     timeout: 15000, // Set the timeout duration in milliseconds (e.g., 5000ms = 5 seconds)
@@ -57,7 +67,12 @@ function LogIn() {
         .then((response) => {
           // Handle the response
           setLoading(false);
-          navigate(`/verify?authToken=${response.data.data}`);
+          const json = { authToken :response.data.data
+            , mobileNo : inputValues[0]
+          };
+          navigate(`/verify`, {
+            state: { json },
+          });
         })
 
         .catch((error) => {

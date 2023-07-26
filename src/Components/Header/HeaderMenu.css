@@ -149,5 +149,12 @@
 }
 
 .SearchSugMenu .Res {
-  margin: 5px;
+  padding: 7px;
+  padding-left: 10px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.Res:hover{
+  background-color: #F7F7F7;
 }

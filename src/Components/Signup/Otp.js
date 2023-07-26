@@ -2,7 +2,7 @@ import React from "react";
 import "./ExampleCss.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import ScaleLoader from "react-spinners/ScaleLoader";
@@ -16,15 +16,33 @@ function Otp(props) {
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const apiUrl = process.env.REACT_APP_API_URL;
-  const location = useLocation(props);
-  const searchParams = new URLSearchParams(location.search);
-  const number = searchParams.get("authToken");
-  const { user } = location.state;
-
-  const mobileNo = user.mobileNo;
-
+  const location = useLocation(props);; 
   const navigate = useNavigate();
+  const searchParams = new URLSearchParams(location.search);
   const [values, setValues] = useState(["", "", "", "", "", ""]);
+  var authToken;
+  var mobileNo;
+  
+  useEffect(() => {
+    if(location.state === null){
+      navigate("/login")
+      }
+    axios.get(`${apiUrl}/api/v1/user/getProfile`, {withCredentials: true})
+    .then((response) => {
+     navigate("/")
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }, []);
+
+  try {
+    authToken = location.state.json.authToken;
+    mobileNo = location.state.json.mobileNo;
+  }
+  catch(error){
+
+  }
 
   const handleGoBack = () => {
     window.history.back(); // Redirects to the last page opened
@@ -43,7 +61,7 @@ function Otp(props) {
       setErrorMessage("Enter Valid OTP");
     } else {
       let user = {
-        authToken: number,
+        authToken: authToken,
         otp: otp,
       };
       setLoading(true);
@@ -118,6 +136,7 @@ function Otp(props) {
   };
 
   return (
+    
     <div className="FormPage">
       <div className="FormBox">
         <div className="LeftBox">
@@ -146,10 +165,10 @@ function Otp(props) {
             <div className="OFormTitle">
               Recieved a verification code?
               <label>
-                We've sent an OTP on your registered mobile number {mobileNo}
+                We've sent an OTP to your registered mobile number {mobileNo}
                 {""}. Enter the 6 digit code
               </label>
-            </div>
+            </div> <br></br>
             <form onSubmit={handleClick}>
               <div className="ORow">
                 {inputRefs.map((ref, index) => (
@@ -187,11 +206,11 @@ function Otp(props) {
                 )}
               </div>
             </form>
-            <div className="Row">
+            {/* <div className="Row">
               <Link className="Link2" to="/signup">
                 New to here? Create an account
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
 
@@ -208,6 +227,7 @@ function Otp(props) {
         </div>
       </div>
     </div>
+    
   );
 }
 

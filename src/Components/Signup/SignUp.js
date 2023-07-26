@@ -2,7 +2,7 @@ import React from "react";
 import "./ExampleCss.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import axios from "axios";
 import ScaleLoader from "react-spinners/ScaleLoader";
 import TermsPolicy from "./TermsPolicy";
@@ -21,6 +21,16 @@ function SignUp() {
       handleContact(index, value);
     }
   };
+
+  useEffect(() => {
+    axios.get(`${apiUrl}/api/v1/user/getProfile`, {withCredentials: true})
+    .then((response) => {
+     navigate("/")
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }, []);
 
   const handleInputChangeName = (index, value) => {
     const newInputValues = [...inputValues];
@@ -59,8 +69,11 @@ function SignUp() {
         .then((response) => {
           // Handle the response
           setLoading(false);
-          navigate(`/verify?authToken=${response.data.data}`, {
-            state: { user },
+          const json = { authToken :response.data.data
+            , mobileNo : inputValues[0]
+          };
+          navigate(`/verify`, {
+            state: { json },
           });
         })
         .catch((error) => {
