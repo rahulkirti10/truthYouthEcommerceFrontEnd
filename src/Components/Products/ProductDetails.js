@@ -91,23 +91,25 @@ function ProductDetails() {
               </label>
             </div>
             <div className="Row">
-              <input
-                className="Input"
-                type="text"
-                maxLength={5}
-                value={number}
-                onChange={(e) => handleInputChange(e, 0, e.target.value)}
-                placeholder="Apply Valid Pincode"
-              />
+              <div>
+                <input
+                  className="Input"
+                  type="text"
+                  maxLength={5}
+                  value={number}
+                  onChange={(e) => handleInputChange(e, 0, e.target.value)}
+                  placeholder="Apply Valid Pincode"
+                />
 
-              <input
-                className="Code"
-                type="text"
-                placeholder="CHECK"
-                readOnly
-                onClick={handleClick}
-              />
-              {<div className="Error"> {errorMessage}</div>}
+                <input
+                  className="Code"
+                  type="text"
+                  placeholder="CHECK"
+                  readOnly
+                  onClick={handleClick}
+                />
+              </div>
+              {<div style={{ color: "red" }}> {errorMessage}</div>}
             </div>
           </div>
           <div className="DetailsQuantity">
