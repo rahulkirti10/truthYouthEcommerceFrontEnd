@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "../../Css files/Products.css";
 import Rating from "@mui/material/Rating";
 import StarIcon from "@mui/icons-material/Star";
