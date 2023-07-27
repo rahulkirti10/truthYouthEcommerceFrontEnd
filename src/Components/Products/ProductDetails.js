@@ -41,11 +41,11 @@ function ProductDetails() {
     e.preventDefault();
 
     if (inputValues[0] === "") {
-      setErrorMessage("Please Enter Mobile Number");
+      setErrorMessage("Please Enter Pincode");
     } else if (inputValues[0].length !== 5) {
-      setErrorMessage("Please Enter a Valid Mobile Number");
+      setErrorMessage("Please Enter a Valid Pincode");
     } else {
-      setErrorMessage("Please Enter a Valid Mobile Number");
+      setErrorMessage("Please Enter a Valid Pincode");
     }
   };
 
@@ -91,7 +91,7 @@ function ProductDetails() {
               </label>
             </div>
             <div className="Row">
-              <div>
+              <div style={{ marginTop: "40px" }}>
                 <input
                   className="Input"
                   type="text"

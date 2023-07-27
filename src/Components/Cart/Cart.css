@@ -1,0 +1,148 @@
+.CartBox {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.CartBox .CartHeading {
+  width: 97%;
+  margin-top: 4%;
+  font-size: 35px;
+  font-weight: 500;
+  color: #1b4b66;
+}
+
+.CartBox .Box {
+  display: flex;
+  flex-direction: row;
+  width: 97%;
+  margin-top: 5%;
+}
+
+.CartBox .Box .Left {
+  width: 70%;
+}
+
+.Heading {
+  height: 30px;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid #b1b1b1;
+  color: #626262;
+  font-weight: 500;
+  font-size: 17px;
+}
+
+.Heading .Head2 {
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.DataBox {
+  margin-top: 5%;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.DataBox .DataBoxLeft {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+}
+
+.DataBox .DataBoxLeft .Image {
+  height: 100%;
+  width: 30%;
+  border: 1px solid black;
+}
+
+.DataBox .DataBoxLeft .Data {
+  height: 100%;
+  margin-left: 4%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.DataBox .DataBoxRight {
+  width: 40%;
+}
+
+.DataBox .DataBoxRight .Data {
+  display: flex;
+  justify-content: space-between;
+}
+
+.DataBox .DataBoxRight .Buttons {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-around;
+  font-weight: 600;
+}
+
+.CartBox .Box .Right {
+  width: 30%;
+  margin-top: 2%;
+}
+
+.Right .RightHeading {
+  width: 100%;
+  height: 40px;
+  font-size: 25px;
+  font-weight: 500;
+  border-bottom: 1px solid black;
+}
+
+.Right .RightData {
+  width: 100%;
+  margin-top: 5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.Right .RightData .Head1 {
+  display: flex;
+  flex-direction: column;
+}
+
+.Right .RightData .Head1 label {
+  margin-top: 10%;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.Right .RightButtons {
+  width: 100%;
+  margin-top: 5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.Right .RightButtons label {
+  width: 48%;
+  height: 40px;
+  border: 2px solid #1b4b66;
+  border-radius: 5px;
+  color: white;
+  background-color: #1b4b66;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.Right .RightButtons label:hover {
+  background-color: white;
+  border: 2px solid #1b4b66;
+  color: #1b4b66;
+}

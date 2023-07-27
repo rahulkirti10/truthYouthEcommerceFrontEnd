@@ -8,6 +8,7 @@ import Otp from "./Components/Signup/Otp";
 import SignUp from "./Components/Signup/SignUp";
 import LogIn from "./Components/Signup/LogIn";
 import ProductDetails from "./Components/Products/ProductDetails";
+import AppCart from "./Components/Cart/AppCart";
 function App() {
   return (
     <>
@@ -24,7 +25,7 @@ function App() {
             }
           />
           <Route
-            path="/products/:keyword"
+            path="/products"
             element={
               <>
                 <AppHeader />
@@ -64,6 +65,16 @@ function App() {
             element={
               <>
                 <Otp />
+              </>
+            }
+          />
+          <Route
+            path="/cart"
+            element={
+              <>
+                <AppHeader />
+                <AppCart />
+                <AppFooter />
               </>
             }
           />
