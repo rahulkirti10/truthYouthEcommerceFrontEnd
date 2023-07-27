@@ -5,8 +5,30 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AddIcon from "@mui/icons-material/Add";
 import ProductCard from "./ProductCard";
+import {useEffect, useState} from "react";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 
 function ProductMenu({ category }) {
+
+  const apiUrl = process.env.REACT_APP_API_URL;
+  const {keyword} = useParams();
+  const[products, setProducts] = useState("");
+
+
+  useEffect(() => {
+    axios
+          .get(`${apiUrl}/api/v1/product/getProductByKeyword?keyword=${keyword}&pageNo=0`)
+          .then((response) => {
+            setProducts(response.data.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+    
+  }, []);
+
+
   const accordionStyle = {
     width: 285,
     borderBottom: "1px solid #E0E0E0",
@@ -106,62 +128,17 @@ function ProductMenu({ category }) {
         <div className="ProductList">
           <div className="ProductListPage">Sorting.....</div>
           <div className="ProductListCard">
+          {products.length !== 0 ? (
+         
+         products.map((d) => (
             <ProductCard
-              image="../Images/Tshirt1.png"
-              name="HRX by Hrithik Roshan"
-              subtitle="Running Bio-Wash T-shirt"
-              price="Rs. 454"
+              image={d.frontImageUrl}
+              name={d.name}
+              subtitle={d.description}
+              price={`Rs. ${d.originalPrice}`}
             />
-            <ProductCard
-              image="../Images/Tshirt2.png"
-              name="Park Avenue"
-              subtitle="Men Polo Collar Slim Fit T-shirt"
-              price="Rs. 674"
-            />
-            <ProductCard
-              image="../Images/Tshirt3.png"
-              name="HRX by Hrithik Roshan"
-              subtitle="Men Navy Blue Printed Sweatshirt"
-              price="Rs. 599"
-            />
-
-            <ProductCard
-              image="../Images/Tshirt4.png"
-              name="Roadster"
-              subtitle="Shadow Check Casual Shirt"
-              price="Rs. 779"
-            />
-            <ProductCard
-              image="../Images/Tshirt2.png"
-              name="Park Avenue"
-              subtitle="Men Polo Collar Slim Fit T-shirt"
-              price="Rs. 674"
-            />
-            <ProductCard
-              image="../Images/Tshirt3.png"
-              name="HRX by Hrithik Roshan"
-              subtitle="Men Navy Blue Printed Sweatshirt"
-              price="Rs. 599"
-            />
-
-            <ProductCard
-              image="../Images/Tshirt4.png"
-              name="Roadster"
-              subtitle="Shadow Check Casual Shirt"
-              price="Rs. 779"
-            />
-            <ProductCard
-              image="../Images/Tshirt2.png"
-              name="Park Avenue"
-              subtitle="Men Polo Collar Slim Fit T-shirt"
-              price="Rs. 674"
-            />
-            <ProductCard
-              image="../Images/Tshirt3.png"
-              name="HRX by Hrithik Roshan"
-              subtitle="Men Navy Blue Printed Sweatshirt"
-              price="Rs. 599"
-            />
+         ))
+          ) : null}
           </div>
         </div>
       </div>

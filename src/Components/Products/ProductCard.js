@@ -27,8 +27,10 @@ function ProductCard(props) {
           {props.name}
           <FavoriteBorderIcon sx={{ cursor: "pointer" }} />
         </label>
-        <label className="Subtitle">{props.subtitle}</label>
-        <label className="Rating">
+        <label className="Subtitle">
+        <span dangerouslySetInnerHTML={{ __html: props.subtitle }} />
+        </label>
+        {/* <label className="Rating">
           <Rating
             name="half-rating"
             defaultValue={3}
@@ -39,7 +41,7 @@ function ProductCard(props) {
             }
             readOnly
           />
-        </label>
+        </label> */}
         <label className="Price">{props.price}</label>
       </div>
     </div>
