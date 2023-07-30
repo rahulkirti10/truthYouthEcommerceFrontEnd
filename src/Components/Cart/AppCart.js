@@ -22,6 +22,7 @@ function AppCart() {
             <CartItem />
             <CartItem />
             <CartItem />
+            <CartItem />
           </div>
         </div>
         <div className="Right">
@@ -44,6 +45,19 @@ function AppCart() {
             <label>Place Order</label>
             <label>Continue Shopping</label>
           </div>
+        </div>
+      </div>
+      <div className="Coupon">
+        <div className="CouponHeading">Apply Coupon Code</div>
+        <div className="CouponInput">
+          <input
+            className="Input"
+            type="text"
+            maxLength={5}
+            placeholder="Apply Coupon Code"
+          />
+
+          <input className="Code" type="text" placeholder="CHECK" readOnly />
         </div>
       </div>
     </div>

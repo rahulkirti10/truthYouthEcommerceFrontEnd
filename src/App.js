@@ -25,6 +25,16 @@ function App() {
             }
           />
           <Route
+            path="/products/:keyword"
+            element={
+              <>
+                <AppHeader />
+                <ProductPage />
+                <AppFooter />
+              </>
+            }
+          />
+          <Route
             path="/products"
             element={
               <>
@@ -35,7 +45,7 @@ function App() {
             }
           />
           <Route
-            path="/productdet"
+            path="/productdet/:id"
             element={
               <>
                 <AppHeader />

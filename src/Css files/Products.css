@@ -51,13 +51,14 @@
   flex-wrap: wrap;
 }
 .ProductCard {
-  height: 410px;
-  width: 280px;
+  height: 500px;
+  width: 350px;
   display: flex;
   align-items: center;
   flex-direction: column;
   margin: 15px;
 }
+
 .ProductCard .Image {
   height: 68.5%;
   width: 100%;
@@ -72,11 +73,12 @@
   width: 95%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: flex-start;
 }
-.ProductCard .Title {
-  font-size: 17px;
+.ProductCard .Data .Title {
+  font-size: 20px;
+  margin-top: 5px;
   font-weight: 600;
   width: 100%;
   display: flex;
@@ -84,21 +86,115 @@
   align-items: flex-start;
   color: #171520;
 }
-.ProductCard .Subtitle {
-  font-size: 15px;
+.ProductCard .Data .Subtitle {
+  font-size: 18px;
   color: #626262;
+  margin-top: 10px;
+  display: flex;
+  text-transform: capitalize;
 }
-.ProductCard .Rating {
+/* .ProductCard .Rating {
   font-size: 14px;
   font-weight: 500;
   color: #1b4b66;
   display: flex;
   align-items: flex-start;
-}
-.ProductCard .Price {
-  font-size: 16.5px;
+} */
+.ProductCard .Data .Price {
+  font-size: 21px;
   font-weight: 600;
-  color: #171520;
+  display: flex;
+  align-items: center;
+}
+
+.ProductCard .Data .Price .Discounted {
+  font-size: 17px;
+  font-weight: 600;
+  color: #bababa;
+  text-decoration: line-through;
+  margin-left: 8px;
+}
+
+.ProductCard .Data .Price .Offer {
+  font-size: 15px;
+  font-weight: 500;
+  color: red;
+  margin-left: 5px;
+}
+
+.ProductCard .Data .Buttons {
+  display: flex;
+  margin-top: 23px;
+  height: 40px;
+  width: 100%;
+}
+
+.ProductCard .Data .Buttons .Button1,
+.ProductCard .Data .Buttons .Button2 {
+  width: 49%;
+  border: 2px solid #1b4b66;
+  color: white;
+  background-color: #1b4b66;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  transition: 0.3s;
+  cursor: pointer;
+  text-transform: capitalize;
+  font-size: 18px;
+}
+
+.ProductCard .Data .Buttons .Button1 {
+  background-color: #2fb83b;
+  border: 2px solid #2fb83b;
+  margin-left: 5px;
+}
+
+.ProductCard .Data .Buttons .Button1:hover {
+  background-color: white;
+  border: 2px solid #2fb83b;
+  color: #2fb83b;
+}
+.ProductCard .Data .Buttons .Button2:hover {
+  background-color: white;
+  border: 2px solid #1b4b66;
+  color: #1b4b66;
+}
+
+@media (max-width: 1300px) {
+  .ProductCard {
+    height: 410px;
+    width: 280px;
+  }
+  .ProductCard .Data .Title {
+    font-size: 17px;
+  }
+  .ProductCard .Data .Subtitle {
+    font-size: 15px;
+  }
+
+  .ProductCard .Data .Price {
+    font-size: 18px;
+  }
+
+  .ProductCard .Data .Price .Discounted {
+    font-size: 14px;
+  }
+
+  .ProductCard .Data .Price .Offer {
+    font-size: 12px;
+  }
+
+  .ProductCard .Data .Buttons {
+    margin-top: 15px;
+    height: 30px;
+  }
+
+  .ProductCard .Data .Buttons .Button1,
+  .ProductCard .Data .Buttons .Button2 {
+    font-size: 15px;
+  }
 }
 
 /* -------------------------------------------------------------------------------------------------- */
@@ -107,7 +203,7 @@
   height: 120vh;
   width: 100vw;
   display: flex;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .DetImage {
@@ -192,7 +288,7 @@
 .DetailsDelivery .Heading .Two {
   font-weight: 500;
   font-size: 17px;
-  margin-top: 7px;
+  margin-top: 5px;
   color: #626262;
 }
 
@@ -385,4 +481,9 @@
 
 .DetailsBox2 .DetailsBoxDesc .Data {
   margin-top: 25px;
+}
+
+.DetailsBox2 .DetailsBoxDesc .Data label {
+  font-size: 25px;
+  font-weight: 600;
 }

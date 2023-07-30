@@ -1,17 +1,51 @@
-import React, {useEffect} from "react";
+import React from "react";
+import axios from "axios";
 import "../../Css files/Products.css";
 import Rating from "@mui/material/Rating";
 import StarIcon from "@mui/icons-material/Star";
-import DiscountedPrice from "./DiscountedPrice";
-import { useState } from "react";
+import PriceFormat from "./PriceFormat";
+import { useEffect, useState } from "react";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
+import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Discount from "./Discount";
 
 function ProductDetails() {
+  const apiUrl = process.env.REACT_APP_API_URL;
+  const { id } = useParams();
+
   const [errorMessage, setErrorMessage] = useState("");
   const [number, setNumber] = useState("");
   const [inputValues, setInputValues] = useState(["", ""]);
-  const [condition, setCondition] = useState("Description");
+  const [products, setProducts] = useState("");
+  const navigate = useNavigate();
+  // const [condition, setCondition] = useState("Description");
+
+  useEffect(() => {
+    if (typeof id === "undefined") {
+      //   axios
+      //     .get(
+      //       `${apiUrl}/api/v1/product/getProductByKeyword?id=all`
+      //     )
+      //     .then((response) => {
+      //       setProducts(response.data.data);
+      //     })
+      navigate(`/`);
+      // .catch((error) => {
+      //   console.log(error);
+      // });
+    } else {
+      axios
+        .get(`${apiUrl}/api/v1/product/getProductById?id=${id}`)
+        .then((response) => {
+          setProducts(response.data.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }, []);
 
   const handleInputChange = (e, index, value) => {
     const numericValue = e.target.value.replace(/[^0-9]/g, "");
@@ -27,15 +61,15 @@ function ProductDetails() {
     setInputValues(newInputValues);
   }
 
-  const handleCondition = (e, index) => {
-    if (index === "Description") {
-      setCondition(index);
-    } else if (index === "Related") {
-      setCondition(index);
-    } else if (index === "Rating") {
-      setCondition(index);
-    }
-  };
+  // const handleCondition = (e, index) => {
+  //   if (index === "Description") {
+  //     setCondition(index);
+  //   } else if (index === "Related") {
+  //     setCondition(index);
+  //   } else if (index === "Rating") {
+  //     setCondition(index);
+  //   }
+  // };
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -53,14 +87,22 @@ function ProductDetails() {
     <>
       <div className="DetailsBox">
         <div className="DetImage">
-          <div className="Image"></div>
+          <div className="Image">
+            {" "}
+            <img
+              src={products.frontImageUrl}
+              alt={products.name}
+              height="70%"
+              width="50%"
+            />
+          </div>
           <div className="Option"></div>
         </div>
         <div className="Details">
           <div className="DetailsTitle">
-            <label className="Title">TITLE</label>
-            <label className="Subtitle">SUBTITLE.</label>
-            <label className="Rating">
+            <label className="Title">{products.name}</label>
+            {/* <label className="Subtitle">SUBTITLE.</label> */}
+            {/* <label className="Rating">
               <Rating
                 name="half-rating"
                 defaultValue={3}
@@ -71,15 +113,20 @@ function ProductDetails() {
                 }
                 readOnly
               />
-            </label>
+            </label> */}
             <div className="Price">
               <label>
-                <DiscountedPrice price={""} />
+                <PriceFormat price={products.discountedPrice} />
               </label>
               <label className="Discounted">
-                <DiscountedPrice price={""} />
+                <PriceFormat price={products.originalPrice} />
               </label>
-              <label className="Offer">Offer</label>
+              <label className="Offer">
+                <Discount
+                  original={products.originalPrice}
+                  discount={products.discountedPrice}
+                />
+              </label>
             </div>
           </div>
           <div className="DetailsDelivery">
@@ -118,10 +165,7 @@ function ProductDetails() {
             <input className="Box" type="text" value={0} />
             <label className="Sign2">+</label>
           </div>
-          {/* <div className="DetailsCoupon">
-          <label>HRX by Hrithik Roshan</label>
-          <label>Men Navy Blue Printed Sweatshirt</label>
-        </div> */}
+
           <div className="DetailsButtons">
             <label className="Button1">
               <ShoppingCartOutlinedIcon sx={{ marginRight: "10px" }} /> Add to
@@ -139,48 +183,46 @@ function ProductDetails() {
         <div className="DetailsBoxHead">
           <button
             className="HeadTitle"
-            onClick={(e) => handleCondition(e, "Description")}
+            // onClick={(e) => handleCondition(e, "Description")}
           >
             Product Description
           </button>
           <button
             className="HeadTitle"
-            onClick={(e) => handleCondition(e, "Related")}
+            // onClick={(e) => handleCondition(e, "Related")}
           >
             Related Products
           </button>
           <button
             className="HeadTitle"
-            onClick={(e) => handleCondition(e, "Rating")}
+            // onClick={(e) => handleCondition(e, "Rating")}
           >
             Ratings and Reviews
           </button>
         </div>
 
         <div className="DetailsBoxDesc">
-          <label className="Data">
-            Lorem ipsum dolor sit amet. Aut quasi saepe ex aliquid architecto in
-            quia libero! Et doloremque similique sit inventore perspiciatis est
-            voluptatem nisi et velit Quis ut explicabo sint. Ut corporis
-            temporibus sed dignissimos iste aut temporibus temporibus et quis
-            laborum et accusantium velit ex nemo blanditiis.
-          </label>
-          <label className="Data">
-            Et dolorem consequatur ab internos unde ea voluptas atque. Cum
-            minima eveniet est quibusdam ipsum eum ullam temporibus et minima
-            quae est ipsum velit quo repudiandae commodi qui tenetur alias. Cum
-            perspiciatis facilis et quia totam ut sapiente accusamus. Ad
-            possimus aliquam et voluptas internos quo quia numquam. Est adipisci
-            accusamus eum quisquam veniam ex suscipit suscipit.
-          </label>
-          <label className="Data">
-            Et dolorem consequatur ab internos unde ea voluptas atque. Cum
-            minima eveniet est quibusdam ipsum eum ullam temporibus et minima
-            quae est ipsum velit quo repudiandae commodi qui tenetur alias. Cum
-            perspiciatis facilis et quia totam ut sapiente accusamus. Ad
-            possimus aliquam et voluptas internos quo quia numquam. Est adipisci
-            accusamus eum quisquam veniam ex suscipit suscipit.
-          </label>
+          <div className="Data">
+            <label>Description :</label>
+            <p
+              style={{ textTransform: "capitalize" }}
+              dangerouslySetInnerHTML={{ __html: products.description }}
+            />
+          </div>
+          <div className="Data">
+            <label>Material & Care :</label>
+            <p
+              style={{ textTransform: "capitalize" }}
+              dangerouslySetInnerHTML={{ __html: products.materialAndCare }}
+            />
+          </div>
+          <div className="Data">
+            <label>Color :</label>
+            <p
+              style={{ textTransform: "capitalize" }}
+              dangerouslySetInnerHTML={{ __html: products.color }}
+            />
+          </div>
         </div>
       </div>
     </>

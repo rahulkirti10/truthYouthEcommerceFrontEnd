@@ -5,29 +5,40 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AddIcon from "@mui/icons-material/Add";
 import ProductCard from "./ProductCard";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
 function ProductMenu({ category }) {
-
   const apiUrl = process.env.REACT_APP_API_URL;
-  const {keyword} = useParams();
-  const[products, setProducts] = useState("");
-
+  const { keyword } = useParams();
+  const [products, setProducts] = useState("");
 
   useEffect(() => {
-    axios
-          .get(`${apiUrl}/api/v1/product/getProductByKeyword?keyword=${keyword}&pageNo=0`)
-          .then((response) => {
-            setProducts(response.data.data);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-    
+    if (typeof keyword === "undefined") {
+      axios
+        .get(
+          `${apiUrl}/api/v1/product/getProductByKeyword?keyword=all&pageNo=0`
+        )
+        .then((response) => {
+          setProducts(response.data.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      axios
+        .get(
+          `${apiUrl}/api/v1/product/getProductByKeyword?keyword=${keyword}&pageNo=0`
+        )
+        .then((response) => {
+          setProducts(response.data.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   }, []);
-
 
   const accordionStyle = {
     width: 285,
@@ -128,17 +139,19 @@ function ProductMenu({ category }) {
         <div className="ProductList">
           <div className="ProductListPage">Sorting.....</div>
           <div className="ProductListCard">
-          {products.length !== 0 ? (
-         
-         products.map((d) => (
-            <ProductCard
-              image={d.frontImageUrl}
-              name={d.name}
-              subtitle={d.description}
-              price={`Rs. ${d.originalPrice}`}
-            />
-         ))
-          ) : null}
+            {products.length !== 0
+              ? products.map((d, index) => (
+                  <ProductCard
+                    image={d.frontImageUrl}
+                    name={d.name}
+                    subtitle={d.description}
+                    original={d.originalPrice}
+                    discount={d.discountedPrice}
+                    id={d.id}
+                    key={index}
+                  />
+                ))
+              : null}
           </div>
         </div>
       </div>

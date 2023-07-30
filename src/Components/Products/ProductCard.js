@@ -1,14 +1,17 @@
 import React from "react";
 import "../../Css files/Products.css";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import Rating from "@mui/material/Rating";
-import StarIcon from "@mui/icons-material/Star";
+// import Rating from "@mui/material/Rating";
+// import StarIcon from "@mui/icons-material/Star";
 import { useNavigate } from "react-router-dom";
+import PriceFormat from "./PriceFormat";
+import ShortDesc from "./ShortDesc";
+import Discount from "./Discount";
 
 function ProductCard(props) {
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate(`/productdet`);
+    navigate(`/productdet/${props.id}`);
   };
 
   return (
@@ -27,9 +30,6 @@ function ProductCard(props) {
           {props.name}
           <FavoriteBorderIcon sx={{ cursor: "pointer" }} />
         </label>
-        <label className="Subtitle">
-        <span dangerouslySetInnerHTML={{ __html: props.subtitle }} />
-        </label>
         {/* <label className="Rating">
           <Rating
             name="half-rating"
@@ -42,7 +42,27 @@ function ProductCard(props) {
             readOnly
           />
         </label> */}
-        <label className="Price">{props.price}</label>
+        <div className="Price">
+          <label>
+            <PriceFormat price={props.discount} />
+          </label>
+          <label className="Discounted">
+            <PriceFormat price={props.original} />
+          </label>
+          <label className="Offer">
+            <Discount original={props.original} discount={props.discount} />
+          </label>
+        </div>
+        <label className="Subtitle">
+          <ShortDesc desc={props.subtitle} />
+          <label style={{ marginLeft: "2px" }}>....</label>{" "}
+          {/* <span dangerouslySetInnerHTML={{ __html: props.subtitle }} /> */}
+        </label>
+
+        <div className="Buttons">
+          <label className="Button2"> add to cart </label>
+          <label className="Button1"> buy now </label>
+        </div>
       </div>
     </div>
   );

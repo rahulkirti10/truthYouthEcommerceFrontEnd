@@ -1,4 +1,4 @@
-function DiscountedPrice({ price }) {
+function PriceFormat({ price }) {
   return Intl.NumberFormat("en-IN", {
     style: "currency",
     currency: "INR",
@@ -6,4 +6,4 @@ function DiscountedPrice({ price }) {
   }).format(price);
 }
 
-export default DiscountedPrice;
+export default PriceFormat;
