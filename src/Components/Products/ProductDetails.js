@@ -20,6 +20,9 @@ function ProductDetails() {
   const [inputValues, setInputValues] = useState(["", ""]);
   const [products, setProducts] = useState("");
   const navigate = useNavigate();
+  const [desc, setDesc] = useState(true);
+  const [related, setRelated] = useState(false);
+  const [rating, setRating] = useState(false);
   // const [condition, setCondition] = useState("Description");
 
   useEffect(() => {
@@ -61,15 +64,21 @@ function ProductDetails() {
     setInputValues(newInputValues);
   }
 
-  // const handleCondition = (e, index) => {
-  //   if (index === "Description") {
-  //     setCondition(index);
-  //   } else if (index === "Related") {
-  //     setCondition(index);
-  //   } else if (index === "Rating") {
-  //     setCondition(index);
-  //   }
-  // };
+  const handleCondition = (e, index) => {
+    if (index === "Description") {
+      setDesc(true);
+      setRating(false);
+      setRelated(false);
+    } else if (index === "Related") {
+      setDesc(false);
+      setRating(false);
+      setRelated(true);
+    } else if (index === "Rating") {
+      setDesc(false);
+      setRating(true);
+      setRelated(false);
+    }
+  };
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -183,46 +192,67 @@ function ProductDetails() {
         <div className="DetailsBoxHead">
           <button
             className="HeadTitle"
-            // onClick={(e) => handleCondition(e, "Description")}
+            onClick={(e) => handleCondition(e, "Description")}
           >
             Product Description
           </button>
           <button
             className="HeadTitle"
-            // onClick={(e) => handleCondition(e, "Related")}
+            onClick={(e) => handleCondition(e, "Related")}
           >
             Related Products
           </button>
           <button
             className="HeadTitle"
-            // onClick={(e) => handleCondition(e, "Rating")}
+            onClick={(e) => handleCondition(e, "Rating")}
           >
             Ratings and Reviews
           </button>
         </div>
 
         <div className="DetailsBoxDesc">
-          <div className="Data">
-            <label>Description :</label>
-            <p
-              style={{ textTransform: "capitalize" }}
-              dangerouslySetInnerHTML={{ __html: products.description }}
-            />
-          </div>
-          <div className="Data">
-            <label>Material & Care :</label>
-            <p
-              style={{ textTransform: "capitalize" }}
-              dangerouslySetInnerHTML={{ __html: products.materialAndCare }}
-            />
-          </div>
-          <div className="Data">
-            <label>Color :</label>
-            <p
-              style={{ textTransform: "capitalize" }}
-              dangerouslySetInnerHTML={{ __html: products.color }}
-            />
-          </div>
+          {desc ? (
+            <>
+              <div className="Data">
+                <label>Description :</label>
+                <p
+                  style={{ textTransform: "capitalize" }}
+                  dangerouslySetInnerHTML={{ __html: products.description }}
+                />
+              </div>
+              <div className="Data">
+                <label>Material & Care :</label>
+                <p
+                  style={{ textTransform: "capitalize" }}
+                  dangerouslySetInnerHTML={{ __html: products.materialAndCare }}
+                />
+              </div>
+              <div className="Data">
+                <label>Color :</label>
+                <p
+                  style={{ textTransform: "capitalize" }}
+                  dangerouslySetInnerHTML={{ __html: products.color }}
+                />
+              </div>
+            </>
+          ) : null}
+
+          {related ? <label>Related Products</label> : null}
+
+          {rating ? (
+            <label className="Rating">
+              <Rating
+                name="half-rating"
+                defaultValue={3}
+                precision={0.5}
+                icon={<StarIcon fontSize="large" sx={{ color: "#ff8c4b" }} />}
+                emptyIcon={
+                  <StarIcon fontSize="large" style={{ opacity: 0.55 }} />
+                }
+                readOnly
+              />
+            </label>
+          ) : null}
         </div>
       </div>
     </>

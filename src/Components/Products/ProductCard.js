@@ -1,6 +1,8 @@
 import React from "react";
 import "../../Css files/Products.css";
+import { useState } from "react";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 // import Rating from "@mui/material/Rating";
 // import StarIcon from "@mui/icons-material/Star";
 import { useNavigate } from "react-router-dom";
@@ -9,9 +11,21 @@ import ShortDesc from "./ShortDesc";
 import Discount from "./Discount";
 
 function ProductCard(props) {
+  const [color, setColor] = useState(false);
+  const [condition, setCondition] = useState("inactive");
   const navigate = useNavigate();
   const handleClick = () => {
     navigate(`/productdet/${props.id}`);
+  };
+
+  const handleWishlist = () => {
+    if (condition === "inactive") {
+      setColor(true);
+      setCondition("active");
+    } else {
+      setColor(false);
+      setCondition("inactive");
+    }
   };
 
   return (
@@ -28,7 +42,13 @@ function ProductCard(props) {
       <div className="Data">
         <label className="Title">
           {props.name}
-          <FavoriteBorderIcon sx={{ cursor: "pointer" }} />
+          <label onClick={(e) => handleWishlist()}>
+            {color ? (
+              <FavoriteIcon sx={{ cursor: "pointer", color: "red" }} />
+            ) : (
+              <FavoriteBorderIcon sx={{ cursor: "pointer" }} />
+            )}
+          </label>
         </label>
         {/* <label className="Rating">
           <Rating

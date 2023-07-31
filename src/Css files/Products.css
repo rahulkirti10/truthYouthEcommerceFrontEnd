@@ -473,6 +473,11 @@
   background-color: #1b4b66;
 }
 
+.DetailsBox2 .DetailsBoxHead .HeadTitle:active {
+  color: white;
+  background-color: #1b4b66;
+}
+
 .DetailsBox2 .DetailsBoxDesc {
   width: 95%;
   display: flex;
